@@ -37,6 +37,11 @@ namespace WrennFinalProject
 
         }
 
+        public void addItem(ListViewItem item)
+        {
+            allListView.Items.Add(item);
+        }
+
         private void partyNameLabel_Click(object sender, EventArgs e)
         {
             RenamePartyForm partyNameForm = new RenamePartyForm(this); 
@@ -58,6 +63,29 @@ namespace WrennFinalProject
         {
             GenerateHoardForm genHoardForm = new GenerateHoardForm(this);
             genHoardForm.ShowDialog();
+        }
+
+        private void addItemButton_Click(object sender, EventArgs e)
+        {
+            AddItemForm addItemForm = new AddItemForm(this);
+            addItemForm.ShowDialog();
+        }
+
+        private void clearListButton_Click(object sender, EventArgs e)
+        {
+            allListView.Items.Clear();
+        }
+
+        private void deleteItemButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                allListView.SelectedItems[0].Remove();
+            }
+            catch
+            {
+                MessageBox.Show("No item is selected!");
+            }
         }
     }
 }
