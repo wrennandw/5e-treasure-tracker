@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.itemNameBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.ppBox = new System.Windows.Forms.TextBox();
             this.addItemButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,11 +58,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(85, 19);
+            this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 30);
+            this.label1.Size = new System.Drawing.Size(322, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Fill in the fields and click Add Item \r\nto add an item to the treasure list!";
+            this.label1.Text = "Fill in the fields and click Add Item to add it to the treasure list!";
             // 
             // itemNameBox
             // 
@@ -136,6 +138,8 @@
             this.attunementCheckbox.Size = new System.Drawing.Size(136, 19);
             this.attunementCheckbox.TabIndex = 7;
             this.attunementCheckbox.Text = "Requires Attunement?";
+            this.toolTip1.SetToolTip(this.attunementCheckbox, "Certain magical items require an hour of attunment to use. Check this box if this" +
+        " applies to this item.");
             this.attunementCheckbox.UseVisualStyleBackColor = true;
             // 
             // rarityComboBox
@@ -283,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 263);
+            this.ClientSize = new System.Drawing.Size(354, 261);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.groupBox1);
@@ -331,6 +335,6 @@
         public System.Windows.Forms.TextBox ppBox;
         public System.Windows.Forms.TextBox cpBox;
         public System.Windows.Forms.TextBox spBox;
-
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

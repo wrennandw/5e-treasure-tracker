@@ -1,8 +1,16 @@
-﻿using System;
+﻿/*
+Project name:   WrennFinalProject (Draft)
+Author : Andrew Wrenn
+Date : 4/20/2025
+Description : A treasure and inventory tracker for D&D 5th Edition
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +25,7 @@ namespace WrennFinalProject
             InitializeComponent();
         }
 
+        // Update the Party Name field from the rename form
         public void updatePartyName(string name)
         {
             partyNameLabel.Text = name;
@@ -37,11 +46,19 @@ namespace WrennFinalProject
 
         }
 
+        // Add an item from the AddItem form
         public void addItem(ListViewItem item)
         {
             allListView.Items.Add(item);
         }
 
+        // Edit an existing item from the EditItem form
+        public void editItem(ListViewItem item, int index)
+        {
+            allListView.Items[index] = item;
+        }
+
+        // Click handlers
         private void partyNameLabel_Click(object sender, EventArgs e)
         {
             RenamePartyForm partyNameForm = new RenamePartyForm(this); 
@@ -86,6 +103,30 @@ namespace WrennFinalProject
             {
                 MessageBox.Show("No item is selected!");
             }
+        }
+
+        private void editItemButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EditItemForm editItemForm = new EditItemForm(this,
+                    allListView.SelectedItems[0]);
+                editItemForm.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("No item is selected!");
+            }
+        }
+
+        private void saveListButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Functionality not yet implemented.");
+        }
+
+        private void loadListButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Functionality not yet implemented.");
         }
     }
 }

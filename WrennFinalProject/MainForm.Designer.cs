@@ -70,6 +70,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.consumablesTab.SuspendLayout();
             this.wondrousTab.SuspendLayout();
             this.armorTab.SuspendLayout();
@@ -128,6 +130,7 @@
             this.editItemButton.TabIndex = 4;
             this.editItemButton.Text = "Edit Item";
             this.editItemButton.UseVisualStyleBackColor = true;
+            this.editItemButton.Click += new System.EventHandler(this.editItemButton_Click);
             // 
             // clearListButton
             // 
@@ -283,6 +286,7 @@
             this.saveListButton.TabIndex = 17;
             this.saveListButton.Text = "Save Treasure List";
             this.saveListButton.UseVisualStyleBackColor = true;
+            this.saveListButton.Click += new System.EventHandler(this.saveListButton_Click);
             // 
             // loadListButton
             // 
@@ -294,6 +298,7 @@
             this.loadListButton.TabIndex = 18;
             this.loadListButton.Text = "Load Treasure List";
             this.loadListButton.UseVisualStyleBackColor = true;
+            this.loadListButton.Click += new System.EventHandler(this.loadListButton_Click);
             // 
             // exitButton
             // 
@@ -519,10 +524,15 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Item filtering functionality is not yet built.";
             // 
+            // openFile
+            // 
+            this.openFile.DefaultExt = "txt";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(699, 441);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.treasureListTabControl);
@@ -610,6 +620,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.OpenFileDialog openFile;
     }
 }
 

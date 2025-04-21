@@ -10,21 +10,23 @@ using System.Windows.Forms;
 
 namespace WrennFinalProject
 {
-    public partial class AddItemForm : Form
+    public partial class EditItemForm : Form
     {
         // Build the form and receive a reference to the main form
         private MainForm mainFormRef;
-        public AddItemForm(MainForm mainForm)
+        int index;
+        public EditItemForm(MainForm mainForm, ListViewItem item)
         {
             InitializeComponent();
             mainFormRef = mainForm;
-
-            // Initialize the dropdowns to a default value
-            typeComboBox.SelectedIndex = 0;
-            rarityComboBox.SelectedIndex = 0;
+            itemNameBox.Text = item.Text;
+            quantityBox.Text = item.SubItems[1].Text;
+            typeComboBox.Text = item.SubItems[2].Text;
+            rarityComboBox.Text = item.SubItems[3].Text;
+            index = item.Index;
         }
 
-        private void addItemButton_Click(object sender, EventArgs e)
+        private void updateItemButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -35,7 +37,7 @@ namespace WrennFinalProject
                 item.SubItems.Add(rarityComboBox.Text);
                 // TODO Implement value conversions
                 item.SubItems.Add("Not implemented");
-                mainFormRef.addItem(item);
+                mainFormRef.editItem(item, index);
                 this.Close();
             }
             catch (Exception ex)
@@ -43,11 +45,6 @@ namespace WrennFinalProject
                 MessageBox.Show(ex.Message);
                 return;
             }
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="AddItemForm.Designer.cs">
       <DependentUpon>AddItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditItemForm.Designer.cs">
+      <DependentUpon>EditItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenerateHoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="AddItemForm.resx">
       <DependentUpon>AddItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditItemForm.resx">
+      <DependentUpon>EditItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenerateHoardForm.resx">
       <DependentUpon>GenerateHoardForm.cs</DependentUpon>
