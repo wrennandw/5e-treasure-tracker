@@ -93,6 +93,10 @@ namespace WrennFinalProject
         private void clearListButton_Click(object sender, EventArgs e)
         {
             allListView.Items.Clear();
+            ppTextBox.Text = "0";
+            gpTextBox.Text = "0";
+            spTextBox.Text = "0";
+            cpTextBox.Text = "0";
         }
 
         private void deleteItemButton_Click(object sender, EventArgs e)
@@ -141,12 +145,23 @@ namespace WrennFinalProject
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                outputFile = File.AppendText(saveFileDialog.FileName);
+                outputFile = File.CreateText(saveFileDialog.FileName);
+                // Write the coinage values to the file first
+                string line = "";
+                line += ppTextBox.Text;
+                line += "|";
+                line += gpTextBox.Text;
+                line += "|";
+                line += spTextBox.Text;
+                line += "|";
+                line += cpTextBox.Text;
+                line += "|";
+                outputFile.WriteLine(line);
                 // Write each item to a line in the save file
                 // Might change this to JSON encoding later
                 for (int i = 0; i < allListView.Items.Count; i++)
                 {
-                    string line = allListView.Items[i].Text;
+                    line = allListView.Items[i].Text;
                     line += "|";
                     line += allListView.Items[i].SubItems[1].Text;
                     line += "|";
@@ -187,11 +202,19 @@ namespace WrennFinalProject
                 allListView.Items.Clear();
                 StreamReader inputFile = new StreamReader(openFileDialog.FileName);
 
+                string currentLine;
+                char delim = '|';
+                currentLine = inputFile.ReadLine();
+                string[] subItems = currentLine.Split(delim);
+                ppTextBox.Text = subItems[0];
+                gpTextBox.Text = subItems[1];
+                spTextBox.Text = subItems[2];
+                cpTextBox.Text = subItems[3];
+
                 while (inputFile.EndOfStream == false)
                 {
-                    string currentLine = inputFile.ReadLine();
-                    char delim = '|';
-                    string[] subItems = currentLine.Split(delim);
+                    currentLine = inputFile.ReadLine();
+                    subItems = currentLine.Split(delim);
 
                     try
                     {
@@ -208,6 +231,7 @@ namespace WrennFinalProject
                         return;
                     }
                 }
+                inputFile.Close();
             }
         }
 
