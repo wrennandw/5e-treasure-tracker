@@ -19,6 +19,7 @@ namespace WrennFinalProject
         {
             InitializeComponent();
             mainFormRef = mainForm;
+            // TODO: Remove "|" from any strings to prevent save issues
             itemNameBox.Text = item.Text;
             quantityBox.Text = item.SubItems[1].Text;
             typeComboBox.Text = item.SubItems[2].Text;

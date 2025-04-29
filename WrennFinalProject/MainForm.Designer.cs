@@ -71,7 +71,7 @@
             this.valuablesTab = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.openFile = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.consumablesTab.SuspendLayout();
             this.wondrousTab.SuspendLayout();
             this.armorTab.SuspendLayout();
@@ -524,9 +524,9 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Item filtering functionality is not yet built.";
             // 
-            // openFile
+            // openFileDialog
             // 
-            this.openFile.DefaultExt = "txt";
+            this.openFileDialog.DefaultExt = "txt";
             // 
             // MainForm
             // 
@@ -621,7 +621,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
-        private System.Windows.Forms.OpenFileDialog openFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

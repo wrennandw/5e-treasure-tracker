@@ -25,6 +25,8 @@ namespace WrennFinalProject
             InitializeComponent();
         }
 
+        
+
         // Update the Party Name field from the rename form
         public void updatePartyName(string name)
         {
@@ -122,17 +124,14 @@ namespace WrennFinalProject
         private void saveListButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            
-            // Get the current path and set up the save folder
-            string currentPath = Environment.CurrentDirectory;
-            currentPath += "\\savedata";
-            saveFileDialog.InitialDirectory = currentPath;
-            
+            saveFileDialog.InitialDirectory = "..\\savedata";
+
             // Create the save directory if it doesn't already exist
-            if (!Directory.Exists(currentPath)){
-                Directory.CreateDirectory(currentPath);
+            if (!Directory.Exists("..\\savedata"))
+            {
+                Directory.CreateDirectory("..\\savedata");
             }
-            
+
             // For some reason setting the default path only works
             // with this disabled
             saveFileDialog.AutoUpgradeEnabled = false;
@@ -142,7 +141,7 @@ namespace WrennFinalProject
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                outputFile = File.CreateText(saveFileDialog.FileName);
+                outputFile = File.AppendText(saveFileDialog.FileName);
                 // Write each item to a line in the save file
                 // Might change this to JSON encoding later
                 for (int i = 0; i < allListView.Items.Count; i++)
@@ -169,7 +168,49 @@ namespace WrennFinalProject
 
         private void loadListButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Functionality not yet implemented.");
+            //MessageBox.Show("Functionality not yet implemented.");
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "..\\savedata";
+            
+            // Create the save directory if it doesn't already exist
+            if (!Directory.Exists("..\\savedata"))
+            {
+                Directory.CreateDirectory("..\\savedata");
+            }
+
+            // For some reason setting the default path only works
+            // with this disabled
+            openFileDialog.AutoUpgradeEnabled = false;
+
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                allListView.Items.Clear();
+                StreamReader inputFile = new StreamReader(openFileDialog.FileName);
+
+                while (inputFile.EndOfStream == false)
+                {
+                    string currentLine = inputFile.ReadLine();
+                    char delim = '|';
+                    string[] subItems = currentLine.Split(delim);
+
+                    try
+                    {
+                        ListViewItem item = new ListViewItem(subItems[0]);
+                        item.SubItems.Add(subItems[1]);
+                        item.SubItems.Add(subItems[2]);
+                        item.SubItems.Add(subItems[3]);
+                        item.SubItems.Add(subItems[4]);
+                        addItem(item);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                }
+            }
         }
+
+
     }
 }

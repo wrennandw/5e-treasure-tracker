@@ -30,6 +30,7 @@ namespace WrennFinalProject
             {
                 int.Parse(quantityBox.Text);
                 ListViewItem item = new ListViewItem(itemNameBox.Text);
+                // TODO: Remove "|" from any strings to prevent save issues
                 item.SubItems.Add(quantityBox.Text);
                 item.SubItems.Add(typeComboBox.Text);
                 item.SubItems.Add(rarityComboBox.Text);
