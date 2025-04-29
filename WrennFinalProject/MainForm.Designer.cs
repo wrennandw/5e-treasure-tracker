@@ -51,26 +51,26 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.consumablesTab = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
             this.wondrousTab = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
             this.armorTab = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.weaponsTab = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.allTab = new System.Windows.Forms.TabPage();
             this.allListView = new System.Windows.Forms.ListView();
             this.itemNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemQuantityColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemRarityColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.itemValueColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.attunementColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.treasureListTabControl = new System.Windows.Forms.TabControl();
             this.gearTab = new System.Windows.Forms.TabPage();
-            this.valuablesTab = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.valuablesTab = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.saveFile = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.consumablesTab.SuspendLayout();
             this.wondrousTab.SuspendLayout();
@@ -329,10 +329,19 @@
             this.consumablesTab.Location = new System.Drawing.Point(4, 24);
             this.consumablesTab.Name = "consumablesTab";
             this.consumablesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.consumablesTab.Size = new System.Drawing.Size(490, 296);
+            this.consumablesTab.Size = new System.Drawing.Size(489, 298);
             this.consumablesTab.TabIndex = 5;
             this.consumablesTab.Text = "Consumables";
             this.consumablesTab.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(128, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(214, 15);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Item filtering functionality is not yet built.";
             // 
             // wondrousTab
             // 
@@ -340,10 +349,19 @@
             this.wondrousTab.Location = new System.Drawing.Point(4, 24);
             this.wondrousTab.Name = "wondrousTab";
             this.wondrousTab.Padding = new System.Windows.Forms.Padding(3);
-            this.wondrousTab.Size = new System.Drawing.Size(490, 296);
+            this.wondrousTab.Size = new System.Drawing.Size(489, 298);
             this.wondrousTab.TabIndex = 3;
             this.wondrousTab.Text = "Wondrous Items";
             this.wondrousTab.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(128, 39);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(214, 15);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Item filtering functionality is not yet built.";
             // 
             // armorTab
             // 
@@ -351,10 +369,19 @@
             this.armorTab.Location = new System.Drawing.Point(4, 24);
             this.armorTab.Name = "armorTab";
             this.armorTab.Padding = new System.Windows.Forms.Padding(3);
-            this.armorTab.Size = new System.Drawing.Size(490, 296);
+            this.armorTab.Size = new System.Drawing.Size(489, 298);
             this.armorTab.TabIndex = 2;
             this.armorTab.Text = "Armor";
             this.armorTab.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(128, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(214, 15);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Item filtering functionality is not yet built.";
             // 
             // weaponsTab
             // 
@@ -363,10 +390,20 @@
             this.weaponsTab.Location = new System.Drawing.Point(4, 24);
             this.weaponsTab.Name = "weaponsTab";
             this.weaponsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.weaponsTab.Size = new System.Drawing.Size(490, 296);
+            this.weaponsTab.Size = new System.Drawing.Size(489, 298);
             this.weaponsTab.TabIndex = 0;
             this.weaponsTab.Text = "Weapons";
             this.weaponsTab.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(128, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(214, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Item filtering functionality is not yet built.";
             // 
             // allTab
             // 
@@ -391,7 +428,7 @@
             this.itemQuantityColumn,
             this.itemTypeColumn,
             this.itemRarityColumn,
-            this.itemValueColumn});
+            this.attunementColumn});
             this.allListView.FullRowSelect = true;
             this.allListView.GridLines = true;
             this.allListView.HideSelection = false;
@@ -407,7 +444,7 @@
             // itemNameColumn
             // 
             this.itemNameColumn.Text = "Item Name";
-            this.itemNameColumn.Width = 180;
+            this.itemNameColumn.Width = 175;
             // 
             // itemQuantityColumn
             // 
@@ -423,10 +460,10 @@
             this.itemRarityColumn.Text = "Rarity";
             this.itemRarityColumn.Width = 72;
             // 
-            // itemValueColumn
+            // attunementColumn
             // 
-            this.itemValueColumn.Text = "Value (GP)";
-            this.itemValueColumn.Width = 70;
+            this.attunementColumn.Text = "Attunement";
+            this.attunementColumn.Width = 75;
             // 
             // treasureListTabControl
             // 
@@ -453,40 +490,10 @@
             this.gearTab.Location = new System.Drawing.Point(4, 24);
             this.gearTab.Name = "gearTab";
             this.gearTab.Padding = new System.Windows.Forms.Padding(3);
-            this.gearTab.Size = new System.Drawing.Size(490, 296);
+            this.gearTab.Size = new System.Drawing.Size(489, 298);
             this.gearTab.TabIndex = 7;
             this.gearTab.Text = "Adventuring Gear";
             this.gearTab.UseVisualStyleBackColor = true;
-            // 
-            // valuablesTab
-            // 
-            this.valuablesTab.Controls.Add(this.label12);
-            this.valuablesTab.Location = new System.Drawing.Point(4, 24);
-            this.valuablesTab.Name = "valuablesTab";
-            this.valuablesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.valuablesTab.Size = new System.Drawing.Size(490, 296);
-            this.valuablesTab.TabIndex = 6;
-            this.valuablesTab.Text = "Valuables";
-            this.valuablesTab.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(128, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(214, 15);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Item filtering functionality is not yet built.";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(128, 39);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(214, 15);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Item filtering functionality is not yet built.";
             // 
             // label9
             // 
@@ -497,23 +504,16 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Item filtering functionality is not yet built.";
             // 
-            // label10
+            // valuablesTab
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(128, 39);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(214, 15);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Item filtering functionality is not yet built.";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(128, 39);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(214, 15);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Item filtering functionality is not yet built.";
+            this.valuablesTab.Controls.Add(this.label12);
+            this.valuablesTab.Location = new System.Drawing.Point(4, 24);
+            this.valuablesTab.Name = "valuablesTab";
+            this.valuablesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.valuablesTab.Size = new System.Drawing.Size(489, 298);
+            this.valuablesTab.TabIndex = 6;
+            this.valuablesTab.Text = "Valuables";
+            this.valuablesTab.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -604,7 +604,7 @@
         public System.Windows.Forms.ColumnHeader itemNameColumn;
         public System.Windows.Forms.ColumnHeader itemTypeColumn;
         public System.Windows.Forms.ColumnHeader itemRarityColumn;
-        public System.Windows.Forms.ColumnHeader itemValueColumn;
+        public System.Windows.Forms.ColumnHeader attunementColumn;
         public System.Windows.Forms.ColumnHeader itemQuantityColumn;
         public System.Windows.Forms.TabPage gearTab;
         public System.Windows.Forms.TabPage consumablesTab;
@@ -620,7 +620,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.SaveFileDialog saveFile;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFile;
     }
 }

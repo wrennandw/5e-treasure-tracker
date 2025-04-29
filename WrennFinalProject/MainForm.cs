@@ -1,5 +1,5 @@
 ﻿/*
-Project name:   WrennFinalProject (Draft)
+Project name: WrennFinalProject
 Author : Andrew Wrenn
 Date : 4/20/2025
 Description : A treasure and inventory tracker for D&D 5th Edition
@@ -121,7 +121,50 @@ namespace WrennFinalProject
 
         private void saveListButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Functionality not yet implemented.");
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            
+            // Get the current path and set up the save folder
+            string currentPath = Environment.CurrentDirectory;
+            currentPath += "\\savedata";
+            saveFileDialog.InitialDirectory = currentPath;
+            
+            // Create the save directory if it doesn't already exist
+            if (!Directory.Exists(currentPath)){
+                Directory.CreateDirectory(currentPath);
+            }
+            
+            // For some reason setting the default path only works
+            // with this disabled
+            saveFileDialog.AutoUpgradeEnabled = false;
+
+            // Initialize the StreamWriter object
+            StreamWriter outputFile;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                outputFile = File.CreateText(saveFileDialog.FileName);
+                // Write each item to a line in the save file
+                // Might change this to JSON encoding later
+                for (int i = 0; i < allListView.Items.Count; i++)
+                {
+                    string line = allListView.Items[i].Text;
+                    line += "|";
+                    line += allListView.Items[i].SubItems[1].Text;
+                    line += "|";
+                    line += allListView.Items[i].SubItems[2].Text;
+                    line += "|";
+                    line += allListView.Items[i].SubItems[3].Text;
+                    line += "|";
+                    line += allListView.Items[i].SubItems[4].Text;
+                    outputFile.WriteLine(line);
+                }
+                outputFile.Close();
+            }
+            else
+            {
+                MessageBox.Show("No file saved.");
+            }
+
         }
 
         private void loadListButton_Click(object sender, EventArgs e)

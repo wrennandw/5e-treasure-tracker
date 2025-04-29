@@ -39,19 +39,9 @@
             this.attunementCheckbox = new System.Windows.Forms.CheckBox();
             this.rarityComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cpBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.spBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.gpBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ppBox = new System.Windows.Forms.TextBox();
             this.addItemButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -169,103 +159,9 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Rarity";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.cpBox);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.spBox);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.gpBox);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.ppBox);
-            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 165);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 88);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Item Value";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(100, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 17);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "CP";
-            // 
-            // cpBox
-            // 
-            this.cpBox.Location = new System.Drawing.Point(130, 55);
-            this.cpBox.Name = "cpBox";
-            this.cpBox.Size = new System.Drawing.Size(58, 21);
-            this.cpBox.TabIndex = 17;
-            this.cpBox.Text = "0";
-            this.cpBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(100, 26);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 17);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "SP";
-            // 
-            // spBox
-            // 
-            this.spBox.Location = new System.Drawing.Point(130, 25);
-            this.spBox.Name = "spBox";
-            this.spBox.Size = new System.Drawing.Size(58, 21);
-            this.spBox.TabIndex = 15;
-            this.spBox.Text = "0";
-            this.spBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 56);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 17);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "GP";
-            // 
-            // gpBox
-            // 
-            this.gpBox.Location = new System.Drawing.Point(36, 55);
-            this.gpBox.Name = "gpBox";
-            this.gpBox.Size = new System.Drawing.Size(58, 21);
-            this.gpBox.TabIndex = 13;
-            this.gpBox.Text = "0";
-            this.gpBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 17);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "PP";
-            // 
-            // ppBox
-            // 
-            this.ppBox.Location = new System.Drawing.Point(36, 25);
-            this.ppBox.Name = "ppBox";
-            this.ppBox.Size = new System.Drawing.Size(58, 21);
-            this.ppBox.TabIndex = 11;
-            this.ppBox.Text = "0";
-            this.ppBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // addItemButton
             // 
-            this.addItemButton.Location = new System.Drawing.Point(244, 185);
+            this.addItemButton.Location = new System.Drawing.Point(99, 178);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(75, 23);
             this.addItemButton.TabIndex = 11;
@@ -275,7 +171,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(244, 215);
+            this.cancelButton.Location = new System.Drawing.Point(180, 178);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 12;
@@ -287,10 +183,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 261);
+            this.ClientSize = new System.Drawing.Size(354, 217);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addItemButton);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rarityComboBox);
             this.Controls.Add(this.attunementCheckbox);
@@ -305,8 +200,6 @@
             this.Name = "AddItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Item";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,11 +212,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.Button cancelButton;
         public System.Windows.Forms.TextBox itemNameBox;
@@ -331,10 +219,6 @@
         public System.Windows.Forms.TextBox quantityBox;
         public System.Windows.Forms.CheckBox attunementCheckbox;
         public System.Windows.Forms.ComboBox rarityComboBox;
-        public System.Windows.Forms.TextBox gpBox;
-        public System.Windows.Forms.TextBox ppBox;
-        public System.Windows.Forms.TextBox cpBox;
-        public System.Windows.Forms.TextBox spBox;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }
