@@ -23,6 +23,7 @@ namespace WrennFinalProject
         public MainForm()
         {
             InitializeComponent();
+            allListView.Dock = DockStyle.Fill;
         }
 
         
@@ -125,6 +126,7 @@ namespace WrennFinalProject
             }
         }
 
+        // Save button functionality
         private void saveListButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -183,6 +185,7 @@ namespace WrennFinalProject
 
         }
 
+        // Load button functionality
         private void loadListButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Functionality not yet implemented.");
@@ -238,6 +241,16 @@ namespace WrennFinalProject
             }
         }
 
+        private void addPartyMemberButton_Click(object sender, EventArgs e)
+        {
+            AddAdventurerForm addAdventurerForm = new AddAdventurerForm(this);
+            addAdventurerForm.ShowDialog();
+        }
 
+        private void removePartyMemberButton_Click(object sender, EventArgs e)
+        {
+            int index = treasureListTabControl.SelectedIndex;
+            treasureListTabControl.TabPages.RemoveAt(index);
+        }
     }
 }

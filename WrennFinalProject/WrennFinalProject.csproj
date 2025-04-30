@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAdventurerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAdventurerForm.Designer.cs">
+      <DependentUpon>AddAdventurerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="RenamePartyForm.Designer.cs">
       <DependentUpon>RenamePartyForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAdventurerForm.resx">
+      <DependentUpon>AddAdventurerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddItemForm.resx">
       <DependentUpon>AddItemForm.cs</DependentUpon>
     </EmbeddedResource>
