@@ -93,11 +93,17 @@ namespace WrennFinalProject
 
         private void clearListButton_Click(object sender, EventArgs e)
         {
-            allListView.Items.Clear();
-            ppTextBox.Text = "0";
-            gpTextBox.Text = "0";
-            spTextBox.Text = "0";
-            cpTextBox.Text = "0";
+            var confirm = MessageBox.Show("Clear all items from this list?", "Clear List",
+                MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+
+                allListView.Items.Clear();
+                ppTextBox.Text = "0";
+                gpTextBox.Text = "0";
+                spTextBox.Text = "0";
+                cpTextBox.Text = "0";
+            }
         }
 
         private void deleteItemButton_Click(object sender, EventArgs e)
@@ -250,7 +256,22 @@ namespace WrennFinalProject
         private void removePartyMemberButton_Click(object sender, EventArgs e)
         {
             int index = treasureListTabControl.SelectedIndex;
-            treasureListTabControl.TabPages.RemoveAt(index);
+            
+            // Prevent the first tab from being deleted
+            if (index == 0)
+            {
+                MessageBox.Show("You cannot delete the main list!");
+            }
+            else
+            {
+                // Make sure the user wants to delete this adventurer
+                var confirm = MessageBox.Show("Remove this adventurer? All items will be deleted.",
+                    "Remove Adventurer", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    treasureListTabControl.TabPages.RemoveAt(index);
+                }
+            }
         }
     }
 }
