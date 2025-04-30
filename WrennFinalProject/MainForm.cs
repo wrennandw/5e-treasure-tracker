@@ -146,6 +146,8 @@ namespace WrennFinalProject
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 outputFile = File.CreateText(saveFileDialog.FileName);
+                
+                outputFile.WriteLine(partyNameLabel.Text);
                 // Write the coinage values to the file first
                 string line = "";
                 line += ppTextBox.Text;
@@ -202,6 +204,7 @@ namespace WrennFinalProject
                 allListView.Items.Clear();
                 StreamReader inputFile = new StreamReader(openFileDialog.FileName);
 
+                partyNameLabel.Text = inputFile.ReadLine();
                 string currentLine;
                 char delim = '|';
                 currentLine = inputFile.ReadLine();
