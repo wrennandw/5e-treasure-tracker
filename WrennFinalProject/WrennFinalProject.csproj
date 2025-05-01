@@ -58,23 +58,12 @@
     <Compile Include="AddItemForm.Designer.cs">
       <DependentUpon>AddItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adventurer.cs" />
     <Compile Include="EditItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditItemForm.Designer.cs">
       <DependentUpon>EditItemForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GenerateHoardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GenerateHoardForm.Designer.cs">
-      <DependentUpon>GenerateHoardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GenerateTreasureForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GenerateTreasureForm.Designer.cs">
-      <DependentUpon>GenerateTreasureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -99,12 +88,6 @@
     <EmbeddedResource Include="EditItemForm.resx">
       <DependentUpon>EditItemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GenerateHoardForm.resx">
-      <DependentUpon>GenerateHoardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GenerateTreasureForm.resx">
-      <DependentUpon>GenerateTreasureForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +99,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RenamePartyForm.resx">
       <DependentUpon>RenamePartyForm.cs</DependentUpon>
@@ -132,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\images\thumbnail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

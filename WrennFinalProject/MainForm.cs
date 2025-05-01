@@ -24,6 +24,7 @@ namespace WrennFinalProject
         {
             InitializeComponent();
             allListView.Dock = DockStyle.Fill;
+            portraitBox.ImageLocation = "..\\images\\thumbnail.png";
         }
 
         
@@ -72,19 +73,7 @@ namespace WrennFinalProject
         {
             this.Close();
         }
-
-        private void generateTreasureButton_Click(object sender, EventArgs e)
-        {
-            GenerateTreasureForm genTreasureForm = new GenerateTreasureForm(this);
-            genTreasureForm.ShowDialog();
-        }
-
-        private void generateHoardButton_Click(object sender, EventArgs e)
-        {
-            GenerateHoardForm genHoardForm = new GenerateHoardForm(this);
-            genHoardForm.ShowDialog();
-        }
-
+                
         private void addItemButton_Click(object sender, EventArgs e)
         {
             AddItemForm addItemForm = new AddItemForm(this);

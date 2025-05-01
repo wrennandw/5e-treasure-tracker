@@ -25,8 +25,15 @@ namespace WrennFinalProject
 
         private void createAdventurerButton_Click(object sender, EventArgs e)
         {
-            mainFormRef.treasureListTabControl.TabPages.Add(adventurerNameTextbox.Text);
-            this.Close();
+            if (adventurerNameTextbox.Text == "")
+            {
+                MessageBox.Show("Please enter a name for this character!");
+            }
+            else
+            {
+                mainFormRef.treasureListTabControl.TabPages.Add(adventurerNameTextbox.Text);
+                this.Close();
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

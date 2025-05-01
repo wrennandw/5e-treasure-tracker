@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.adventurerNameTextbox = new System.Windows.Forms.TextBox();
             this.classSelectDropdown = new System.Windows.Forms.ComboBox();
@@ -35,6 +36,7 @@
             this.defaultGearCheckbox = new System.Windows.Forms.CheckBox();
             this.createAdventurerButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -95,6 +97,8 @@
             this.defaultGearCheckbox.Size = new System.Drawing.Size(110, 17);
             this.defaultGearCheckbox.TabIndex = 5;
             this.defaultGearCheckbox.Text = "Add default gear?";
+            this.toolTip1.SetToolTip(this.defaultGearCheckbox, "Default gear assumes the quickstart options for the character as listed in the Pl" +
+        "ayer\'s Handbook");
             this.defaultGearCheckbox.UseVisualStyleBackColor = true;
             // 
             // createAdventurerButton
@@ -147,5 +151,6 @@
         private System.Windows.Forms.CheckBox defaultGearCheckbox;
         private System.Windows.Forms.Button createAdventurerButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

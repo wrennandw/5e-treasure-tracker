@@ -42,8 +42,6 @@
             this.spTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cpTextBox = new System.Windows.Forms.TextBox();
-            this.generateTreasureButton = new System.Windows.Forms.Button();
-            this.generateHoardButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.saveListButton = new System.Windows.Forms.Button();
@@ -62,8 +60,11 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.addPartyMemberButton = new System.Windows.Forms.Button();
             this.removePartyMemberButton = new System.Windows.Forms.Button();
+            this.portraitBox = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.allTab.SuspendLayout();
             this.treasureListTabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).BeginInit();
             this.SuspendLayout();
             // 
             // partyNameLabel
@@ -73,7 +74,7 @@
             this.partyNameLabel.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partyNameLabel.Location = new System.Drawing.Point(12, 12);
             this.partyNameLabel.Name = "partyNameLabel";
-            this.partyNameLabel.Size = new System.Drawing.Size(400, 40);
+            this.partyNameLabel.Size = new System.Drawing.Size(498, 40);
             this.partyNameLabel.TabIndex = 0;
             this.partyNameLabel.Text = "Click to Name Your Party";
             this.partyNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -224,31 +225,6 @@
             this.cpTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.cpTextBox, "Copper Pieces");
             // 
-            // generateTreasureButton
-            // 
-            this.generateTreasureButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.generateTreasureButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.generateTreasureButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generateTreasureButton.Location = new System.Drawing.Point(520, 88);
-            this.generateTreasureButton.Name = "generateTreasureButton";
-            this.generateTreasureButton.Size = new System.Drawing.Size(133, 50);
-            this.generateTreasureButton.TabIndex = 14;
-            this.generateTreasureButton.Text = "Generate Random Treasure";
-            this.generateTreasureButton.UseVisualStyleBackColor = false;
-            this.generateTreasureButton.Click += new System.EventHandler(this.generateTreasureButton_Click);
-            // 
-            // generateHoardButton
-            // 
-            this.generateHoardButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.generateHoardButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.generateHoardButton.Location = new System.Drawing.Point(520, 144);
-            this.generateHoardButton.Name = "generateHoardButton";
-            this.generateHoardButton.Size = new System.Drawing.Size(133, 50);
-            this.generateHoardButton.TabIndex = 15;
-            this.generateHoardButton.Text = "Generate Treasure Hoard";
-            this.generateHoardButton.UseVisualStyleBackColor = true;
-            this.generateHoardButton.Click += new System.EventHandler(this.generateHoardButton_Click);
-            // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -258,15 +234,15 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 16;
-            this.label5.Text = "v0.1 | Andrew Wrenn";
+            this.label5.Text = "v0.2 | Andrew Wrenn";
             // 
             // saveListButton
             // 
             this.saveListButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.saveListButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveListButton.Location = new System.Drawing.Point(520, 262);
+            this.saveListButton.Location = new System.Drawing.Point(520, 274);
             this.saveListButton.Name = "saveListButton";
-            this.saveListButton.Size = new System.Drawing.Size(133, 25);
+            this.saveListButton.Size = new System.Drawing.Size(161, 25);
             this.saveListButton.TabIndex = 17;
             this.saveListButton.Text = "Save Treasure List";
             this.saveListButton.UseVisualStyleBackColor = true;
@@ -276,9 +252,9 @@
             // 
             this.loadListButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.loadListButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadListButton.Location = new System.Drawing.Point(520, 293);
+            this.loadListButton.Location = new System.Drawing.Point(520, 305);
             this.loadListButton.Name = "loadListButton";
-            this.loadListButton.Size = new System.Drawing.Size(133, 25);
+            this.loadListButton.Size = new System.Drawing.Size(161, 25);
             this.loadListButton.TabIndex = 18;
             this.loadListButton.Text = "Load Treasure List";
             this.loadListButton.UseVisualStyleBackColor = true;
@@ -383,10 +359,11 @@
             // 
             // addPartyMemberButton
             // 
+            this.addPartyMemberButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.addPartyMemberButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPartyMemberButton.Location = new System.Drawing.Point(520, 200);
+            this.addPartyMemberButton.Location = new System.Drawing.Point(520, 212);
             this.addPartyMemberButton.Name = "addPartyMemberButton";
-            this.addPartyMemberButton.Size = new System.Drawing.Size(133, 25);
+            this.addPartyMemberButton.Size = new System.Drawing.Size(161, 25);
             this.addPartyMemberButton.TabIndex = 22;
             this.addPartyMemberButton.Text = "Add Adventurer";
             this.addPartyMemberButton.UseVisualStyleBackColor = true;
@@ -394,14 +371,39 @@
             // 
             // removePartyMemberButton
             // 
+            this.removePartyMemberButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.removePartyMemberButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removePartyMemberButton.Location = new System.Drawing.Point(520, 231);
+            this.removePartyMemberButton.Location = new System.Drawing.Point(520, 243);
             this.removePartyMemberButton.Name = "removePartyMemberButton";
-            this.removePartyMemberButton.Size = new System.Drawing.Size(133, 25);
+            this.removePartyMemberButton.Size = new System.Drawing.Size(161, 25);
             this.removePartyMemberButton.TabIndex = 23;
             this.removePartyMemberButton.Text = "Remove Adventurer";
             this.removePartyMemberButton.UseVisualStyleBackColor = true;
             this.removePartyMemberButton.Click += new System.EventHandler(this.removePartyMemberButton_Click);
+            // 
+            // portraitBox
+            // 
+            this.portraitBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.portraitBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.portraitBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.portraitBox.InitialImage = null;
+            this.portraitBox.Location = new System.Drawing.Point(520, 12);
+            this.portraitBox.Name = "portraitBox";
+            this.portraitBox.Size = new System.Drawing.Size(160, 160);
+            this.portraitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portraitBox.TabIndex = 24;
+            this.portraitBox.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(541, 175);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 17);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Click to change portrait";
             // 
             // MainForm
             // 
@@ -409,6 +411,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.portraitBox);
             this.Controls.Add(this.removePartyMemberButton);
             this.Controls.Add(this.addPartyMemberButton);
             this.Controls.Add(this.label6);
@@ -417,8 +421,6 @@
             this.Controls.Add(this.loadListButton);
             this.Controls.Add(this.saveListButton);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.generateHoardButton);
-            this.Controls.Add(this.generateTreasureButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cpTextBox);
             this.Controls.Add(this.label3);
@@ -437,6 +439,7 @@
             this.Text = "D&D 5e Treasure Tracker";
             this.allTab.ResumeLayout(false);
             this.treasureListTabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,8 +460,6 @@
         private System.Windows.Forms.TextBox spTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox cpTextBox;
-        private System.Windows.Forms.Button generateTreasureButton;
-        private System.Windows.Forms.Button generateHoardButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button saveListButton;
@@ -477,6 +478,8 @@
         private System.Windows.Forms.Button addPartyMemberButton;
         private System.Windows.Forms.Button removePartyMemberButton;
         public System.Windows.Forms.TabControl treasureListTabControl;
+        private System.Windows.Forms.PictureBox portraitBox;
+        private System.Windows.Forms.Label label7;
     }
 }
 
