@@ -20,14 +20,16 @@ namespace WrennFinalProject
 {
     public partial class MainForm : Form
     {
+
+
         public MainForm()
         {
             InitializeComponent();
-            allListView.Dock = DockStyle.Fill;
-            portraitBox.ImageLocation = "..\\images\\thumbnail.png";
+            Adventurer allTab = new Adventurer(this, "All", "..\\images\\thumbnail.png");
+            Controller.addAdventurer(allTab, 0, this);
+            // Container for instantiated Adventurers
+            
         }
-
-        
 
         // Update the Party Name field from the rename form
         public void updatePartyName(string name)
@@ -50,18 +52,6 @@ namespace WrennFinalProject
 
         }
 
-        // Add an item from the AddItem form
-        public void addItem(ListViewItem item)
-        {
-            allListView.Items.Add(item);
-        }
-
-        // Edit an existing item from the EditItem form
-        public void editItem(ListViewItem item, int index)
-        {
-            allListView.Items[index] = item;
-        }
-
         // Click handlers
         private void partyNameLabel_Click(object sender, EventArgs e)
         {
@@ -76,7 +66,8 @@ namespace WrennFinalProject
                 
         private void addItemButton_Click(object sender, EventArgs e)
         {
-            AddItemForm addItemForm = new AddItemForm(this);
+            int index = treasureListTabControl.SelectedIndex;
+            AddItemForm addItemForm = new AddItemForm(this, index);
             addItemForm.ShowDialog();
         }
 
@@ -87,7 +78,7 @@ namespace WrennFinalProject
             if (confirm == DialogResult.Yes)
             {
 
-                allListView.Items.Clear();
+               // allListView.Items.Clear();
                 ppTextBox.Text = "0";
                 gpTextBox.Text = "0";
                 spTextBox.Text = "0";
@@ -99,7 +90,7 @@ namespace WrennFinalProject
         {
             try
             {
-                allListView.SelectedItems[0].Remove();
+                //allListView.SelectedItems[0].Remove();
             }
             catch
             {
@@ -111,8 +102,10 @@ namespace WrennFinalProject
         {
             try
             {
+                int tabIndex = treasureListTabControl.SelectedIndex;
                 EditItemForm editItemForm = new EditItemForm(this,
-                    allListView.SelectedItems[0]);
+                    Controller.adventurerTabs[tabIndex].treasureList.SelectedItems[0],
+                    tabIndex);
                 editItemForm.ShowDialog();
             }
             catch
@@ -158,9 +151,9 @@ namespace WrennFinalProject
                 outputFile.WriteLine(line);
                 // Write each item to a line in the save file
                 // Might change this to JSON encoding later
-                for (int i = 0; i < allListView.Items.Count; i++)
-                {
-                    line = allListView.Items[i].Text;
+                //for (int i = 0; i < allListView.Items.Count; i++)
+                //{
+                    /*line = allListView.Items[i].Text;
                     line += "|";
                     line += allListView.Items[i].SubItems[1].Text;
                     line += "|";
@@ -169,8 +162,8 @@ namespace WrennFinalProject
                     line += allListView.Items[i].SubItems[3].Text;
                     line += "|";
                     line += allListView.Items[i].SubItems[4].Text;
-                    outputFile.WriteLine(line);
-                }
+                    outputFile.WriteLine(line);*/
+                //}
                 outputFile.Close();
             }
             else
@@ -199,7 +192,7 @@ namespace WrennFinalProject
 
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                allListView.Items.Clear();
+                //allListView.Items.Clear();
                 StreamReader inputFile = new StreamReader(openFileDialog.FileName);
 
                 partyNameLabel.Text = inputFile.ReadLine();
@@ -224,7 +217,7 @@ namespace WrennFinalProject
                         item.SubItems.Add(subItems[2]);
                         item.SubItems.Add(subItems[3]);
                         item.SubItems.Add(subItems[4]);
-                        addItem(item);
+                        //addItem(item);
                     }
                     catch (Exception ex)
                     {
@@ -238,7 +231,8 @@ namespace WrennFinalProject
 
         private void addPartyMemberButton_Click(object sender, EventArgs e)
         {
-            AddAdventurerForm addAdventurerForm = new AddAdventurerForm(this);
+            int index = treasureListTabControl.SelectedIndex;
+            AddAdventurerForm addAdventurerForm = new AddAdventurerForm(this, index);
             addAdventurerForm.ShowDialog();
         }
 
@@ -259,8 +253,15 @@ namespace WrennFinalProject
                 if (confirm == DialogResult.Yes)
                 {
                     treasureListTabControl.TabPages.RemoveAt(index);
+                    Controller.removeAdventurer(index);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DebugForm debugForm = new DebugForm();
+            debugForm.ShowDialog();
         }
     }
 }

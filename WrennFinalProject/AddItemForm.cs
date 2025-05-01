@@ -14,10 +14,13 @@ namespace WrennFinalProject
     {
         // Build the form and receive a reference to the main form
         private MainForm mainFormRef;
-        public AddItemForm(MainForm mainForm)
+        private int tabIndex;
+        public AddItemForm(MainForm mainForm, int index)
         {
             InitializeComponent();
             mainFormRef = mainForm;
+            tabIndex = mainFormRef.treasureListTabControl.SelectedIndex;
+
 
             // Initialize the dropdowns to a default value
             typeComboBox.SelectedIndex = 0;
@@ -47,7 +50,7 @@ namespace WrennFinalProject
                 {
                     item.SubItems.Add("No");
                 }
-                mainFormRef.addItem(item);
+                Controller.adventurerTabs[tabIndex].addItem(item);
                 this.Close();
             }
             catch (Exception ex)

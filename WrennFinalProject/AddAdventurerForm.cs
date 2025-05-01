@@ -14,11 +14,13 @@ namespace WrennFinalProject
     {
         // Build the form and receive a reference to the main form
         private MainForm mainFormRef;
-        public AddAdventurerForm(MainForm mainForm)
+        int tabIndex;
+
+        public AddAdventurerForm(MainForm mainForm, int index)
         {
             InitializeComponent();
             mainFormRef = mainForm;
-            
+            tabIndex = index;
             // Initialize class dropdown
             classSelectDropdown.SelectedIndex = 0;
         }
@@ -31,7 +33,9 @@ namespace WrennFinalProject
             }
             else
             {
-                mainFormRef.treasureListTabControl.TabPages.Add(adventurerNameTextbox.Text);
+                Adventurer adventurer = new Adventurer(mainFormRef,
+                    adventurerNameTextbox.Text, "..\\images\\thumbnail.png");
+                Controller.addAdventurer(adventurer, tabIndex, mainFormRef);
                 this.Close();
             }
         }

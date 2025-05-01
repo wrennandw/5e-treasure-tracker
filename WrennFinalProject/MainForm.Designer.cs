@@ -48,13 +48,6 @@
             this.loadListButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.allTab = new System.Windows.Forms.TabPage();
-            this.allListView = new System.Windows.Forms.ListView();
-            this.itemNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.itemQuantityColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.itemTypeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.itemRarityColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.attunementColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.treasureListTabControl = new System.Windows.Forms.TabControl();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -62,8 +55,7 @@
             this.removePartyMemberButton = new System.Windows.Forms.Button();
             this.portraitBox = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.allTab.SuspendLayout();
-            this.treasureListTabControl.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -283,69 +275,11 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "Coinage";
             // 
-            // allTab
-            // 
-            this.allTab.Controls.Add(this.allListView);
-            this.allTab.Location = new System.Drawing.Point(4, 24);
-            this.allTab.Name = "allTab";
-            this.allTab.Padding = new System.Windows.Forms.Padding(3);
-            this.allTab.Size = new System.Drawing.Size(494, 318);
-            this.allTab.TabIndex = 1;
-            this.allTab.Text = "All";
-            this.allTab.UseVisualStyleBackColor = true;
-            // 
-            // allListView
-            // 
-            this.allListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.allListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.allListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.itemNameColumn,
-            this.itemQuantityColumn,
-            this.itemTypeColumn,
-            this.itemRarityColumn,
-            this.attunementColumn});
-            this.allListView.FullRowSelect = true;
-            this.allListView.GridLines = true;
-            this.allListView.HideSelection = false;
-            this.allListView.Location = new System.Drawing.Point(0, 0);
-            this.allListView.MultiSelect = false;
-            this.allListView.Name = "allListView";
-            this.allListView.ShowItemToolTips = true;
-            this.allListView.Size = new System.Drawing.Size(491, 315);
-            this.allListView.TabIndex = 0;
-            this.allListView.UseCompatibleStateImageBehavior = false;
-            this.allListView.View = System.Windows.Forms.View.Details;
-            // 
-            // itemNameColumn
-            // 
-            this.itemNameColumn.Text = "Item Name";
-            this.itemNameColumn.Width = 175;
-            // 
-            // itemQuantityColumn
-            // 
-            this.itemQuantityColumn.Text = "Quantity";
-            // 
-            // itemTypeColumn
-            // 
-            this.itemTypeColumn.Text = "Type";
-            this.itemTypeColumn.Width = 105;
-            // 
-            // itemRarityColumn
-            // 
-            this.itemRarityColumn.Text = "Rarity";
-            this.itemRarityColumn.Width = 72;
-            // 
-            // attunementColumn
-            // 
-            this.attunementColumn.Text = "Attunement";
-            this.attunementColumn.Width = 75;
-            // 
             // treasureListTabControl
             // 
             this.treasureListTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treasureListTabControl.Controls.Add(this.allTab);
             this.treasureListTabControl.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treasureListTabControl.Location = new System.Drawing.Point(12, 64);
             this.treasureListTabControl.Name = "treasureListTabControl";
@@ -405,12 +339,23 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "Click to change portrait";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(478, 418);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(704, 461);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.portraitBox);
             this.Controls.Add(this.removePartyMemberButton);
@@ -437,8 +382,6 @@
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "MainForm";
             this.Text = "D&D 5e Treasure Tracker";
-            this.allTab.ResumeLayout(false);
-            this.treasureListTabControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -466,13 +409,6 @@
         private System.Windows.Forms.Button loadListButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ColumnHeader itemNameColumn;
-        public System.Windows.Forms.ColumnHeader itemTypeColumn;
-        public System.Windows.Forms.ColumnHeader itemRarityColumn;
-        public System.Windows.Forms.ColumnHeader attunementColumn;
-        public System.Windows.Forms.ColumnHeader itemQuantityColumn;
-        public System.Windows.Forms.TabPage allTab;
-        public System.Windows.Forms.ListView allListView;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button addPartyMemberButton;
@@ -480,6 +416,7 @@
         public System.Windows.Forms.TabControl treasureListTabControl;
         private System.Windows.Forms.PictureBox portraitBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -14,8 +14,10 @@ namespace WrennFinalProject
     {
         // Build the form and receive a reference to the main form
         private MainForm mainFormRef;
-        int index;
-        public EditItemForm(MainForm mainForm, ListViewItem item)
+        private int tabIndex;
+        private int index;
+
+        public EditItemForm(MainForm mainForm, ListViewItem item, int tabIndex)
         {
             InitializeComponent();
             mainFormRef = mainForm;
@@ -33,6 +35,7 @@ namespace WrennFinalProject
                 attunementCheckbox.Checked = false;
             }
             index = item.Index;
+            tabIndex = tabIndex;
         }
 
         private void updateItemButton_Click(object sender, EventArgs e)
@@ -57,7 +60,7 @@ namespace WrennFinalProject
                 {
                     item.SubItems.Add("No");
                 }
-                mainFormRef.editItem(item, index);
+                Controller.adventurerTabs[tabIndex].editItem(item, index);
                 this.Close();
             }
             catch (Exception ex)
