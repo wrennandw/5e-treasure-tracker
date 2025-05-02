@@ -80,11 +80,8 @@ namespace WrennFinalProject
             if (confirm == DialogResult.Yes)
             {
 
-               // allListView.Items.Clear();
-                ppTextBox.Text = "0";
-                gpTextBox.Text = "0";
-                spTextBox.Text = "0";
-                cpTextBox.Text = "0";
+                int tabIndex = treasureListTabControl.SelectedIndex;
+                Controller.adventurerTabs[tabIndex].clearList();
             }
         }
 
@@ -274,6 +271,7 @@ namespace WrennFinalProject
             int tabIndex = treasureListTabControl.SelectedIndex;
             string portraitPath = Controller.adventurerTabs[tabIndex].portraitPath;
             portraitBox.ImageLocation = portraitPath;
+
         }
 
         private void portraitBox_Click(object sender, EventArgs e)

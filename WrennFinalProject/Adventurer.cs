@@ -75,6 +75,11 @@ namespace WrennFinalProject
             item.Remove();
         }
 
+        public void clearList()
+        {
+            treasureList.Items.Clear();
+        }
+
         public void updatePortrait(string path)
         {
             this.portraitPath = path;
