@@ -1,9 +1,16 @@
 ﻿/*
 Project name: WrennFinalProject
-Author : Andrew Wrenn
-Date : 4/20/2025
-Description : A treasure and inventory tracker for D&D 5th Edition
-*/
+Author: Andrew Wrenn
+Date: 4/20/2025
+Description: A treasure and inventory tracker for D&D 5th Edition
+Github: https:// www/github.com/wrennandw/5e-treasure-tracker
+
+Default portraits sourced from the Dungeons & Dragons 5th Edition Player's Handbook
+Coin icons from https:// img.freepik.com/free-vector/realistic-coins-transparent-set-isolated-icons
+    -with-gold-silver-bronze-colored-money-dime-items-vector-illustration_1284-78174.jpg
+ */
+
+
 
 using System;
 using System.Collections.Generic;
@@ -142,8 +149,8 @@ namespace WrennFinalProject
                 outputFile.WriteLine(partyNameLabel.Text);
                 // Write the coinage values to the file first
                 string line = "";
-                line += ppTextBox.Text;
-                line += "|";
+               // line += ppTextBox.Text;
+              //  line += "|";
                 line += gpTextBox.Text;
                 line += "|";
                 line += spTextBox.Text;
@@ -202,7 +209,7 @@ namespace WrennFinalProject
                 char delim = '|';
                 currentLine = inputFile.ReadLine();
                 string[] subItems = currentLine.Split(delim);
-                ppTextBox.Text = subItems[0];
+                //ppTextBox.Text = subItems[0];
                 gpTextBox.Text = subItems[1];
                 spTextBox.Text = subItems[2];
                 cpTextBox.Text = subItems[3];

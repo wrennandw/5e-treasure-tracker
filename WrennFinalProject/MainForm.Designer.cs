@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.partyNameLabel = new System.Windows.Forms.Label();
             this.addItemButton = new System.Windows.Forms.Button();
             this.deleteItemButton = new System.Windows.Forms.Button();
             this.editItemButton = new System.Windows.Forms.Button();
             this.clearListButton = new System.Windows.Forms.Button();
-            this.ppTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gpTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             this.saveListButton = new System.Windows.Forms.Button();
             this.loadListButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.treasureListTabControl = new System.Windows.Forms.TabControl();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -55,10 +53,16 @@
             this.removePartyMemberButton = new System.Windows.Forms.Button();
             this.portraitBox = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.renameButton = new System.Windows.Forms.Button();
-            this.coinageLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // partyNameLabel
@@ -123,36 +127,12 @@
             this.clearListButton.UseVisualStyleBackColor = true;
             this.clearListButton.Click += new System.EventHandler(this.clearListButton_Click);
             // 
-            // ppTextBox
-            // 
-            this.ppTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ppTextBox.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppTextBox.Location = new System.Drawing.Point(544, 324);
-            this.ppTextBox.Name = "ppTextBox";
-            this.ppTextBox.Size = new System.Drawing.Size(49, 21);
-            this.ppTextBox.TabIndex = 6;
-            this.ppTextBox.Text = "0";
-            this.ppTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip1.SetToolTip(this.ppTextBox, "Platinum Pieces");
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(597, 327);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "PP";
-            this.toolTip1.SetToolTip(this.label1, "Platinum Pieces");
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(597, 353);
+            this.label2.Location = new System.Drawing.Point(101, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 16);
             this.label2.TabIndex = 9;
@@ -163,7 +143,7 @@
             // 
             this.gpTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gpTextBox.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpTextBox.Location = new System.Drawing.Point(544, 350);
+            this.gpTextBox.Location = new System.Drawing.Point(48, 23);
             this.gpTextBox.Name = "gpTextBox";
             this.gpTextBox.Size = new System.Drawing.Size(49, 21);
             this.gpTextBox.TabIndex = 8;
@@ -176,7 +156,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(597, 380);
+            this.label3.Location = new System.Drawing.Point(101, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 16);
             this.label3.TabIndex = 11;
@@ -187,7 +167,7 @@
             // 
             this.spTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.spTextBox.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.spTextBox.Location = new System.Drawing.Point(544, 377);
+            this.spTextBox.Location = new System.Drawing.Point(48, 50);
             this.spTextBox.Name = "spTextBox";
             this.spTextBox.Size = new System.Drawing.Size(49, 21);
             this.spTextBox.TabIndex = 10;
@@ -200,7 +180,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(597, 406);
+            this.label4.Location = new System.Drawing.Point(101, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 16);
             this.label4.TabIndex = 13;
@@ -211,7 +191,7 @@
             // 
             this.cpTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cpTextBox.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpTextBox.Location = new System.Drawing.Point(544, 403);
+            this.cpTextBox.Location = new System.Drawing.Point(48, 76);
             this.cpTextBox.Name = "cpTextBox";
             this.cpTextBox.Size = new System.Drawing.Size(49, 21);
             this.cpTextBox.TabIndex = 12;
@@ -228,7 +208,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 16;
-            this.label5.Text = "v0.2 | Andrew Wrenn";
+            this.label5.Text = "v0.3 | Andrew Wrenn";
             // 
             // saveListButton
             // 
@@ -265,17 +245,6 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(624, 351);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 18);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Coinage";
             // 
             // treasureListTabControl
             // 
@@ -343,18 +312,9 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "Click to change portrait";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 439);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // renameButton
             // 
+            this.renameButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.renameButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renameButton.Location = new System.Drawing.Point(520, 226);
             this.renameButton.Name = "renameButton";
@@ -363,16 +323,55 @@
             this.renameButton.Text = "Rename Adventurer";
             this.renameButton.UseVisualStyleBackColor = true;
             // 
-            // coinageLabel
+            // groupBox1
             // 
-            this.coinageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.coinageLabel.AutoSize = true;
-            this.coinageLabel.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coinageLabel.Location = new System.Drawing.Point(624, 325);
-            this.coinageLabel.Name = "coinageLabel";
-            this.coinageLabel.Size = new System.Drawing.Size(71, 18);
-            this.coinageLabel.TabIndex = 28;
-            this.coinageLabel.Text = "Individual";
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.gpTextBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.spTextBox);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cpTextBox);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(520, 319);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(160, 112);
+            this.groupBox1.TabIndex = 28;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Party Coinage";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(22, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(22, 50);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(22, 76);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
             // 
             // MainForm
             // 
@@ -380,27 +379,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(704, 461);
-            this.Controls.Add(this.coinageLabel);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.renameButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.portraitBox);
             this.Controls.Add(this.removePartyMemberButton);
             this.Controls.Add(this.addPartyMemberButton);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.treasureListTabControl);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.loadListButton);
             this.Controls.Add(this.saveListButton);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cpTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.spTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.gpTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.ppTextBox);
             this.Controls.Add(this.clearListButton);
             this.Controls.Add(this.editItemButton);
             this.Controls.Add(this.deleteItemButton);
@@ -410,6 +399,11 @@
             this.Name = "MainForm";
             this.Text = "D&D 5e Treasure Tracker";
             ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,8 +416,6 @@
         private System.Windows.Forms.Button deleteItemButton;
         private System.Windows.Forms.Button editItemButton;
         private System.Windows.Forms.Button clearListButton;
-        private System.Windows.Forms.TextBox ppTextBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox gpTextBox;
         private System.Windows.Forms.Label label3;
@@ -441,11 +433,12 @@
         private System.Windows.Forms.Button removePartyMemberButton;
         public System.Windows.Forms.TabControl treasureListTabControl;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.PictureBox portraitBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button renameButton;
-        private System.Windows.Forms.Label coinageLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
