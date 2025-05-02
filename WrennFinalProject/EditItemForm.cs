@@ -17,7 +17,7 @@ namespace WrennFinalProject
         private int tabIndex;
         private int index;
 
-        public EditItemForm(MainForm mainForm, ListViewItem item, int tabIndex)
+        public EditItemForm(MainForm mainForm, ListViewItem item, int tab)
         {
             InitializeComponent();
             mainFormRef = mainForm;
@@ -35,7 +35,7 @@ namespace WrennFinalProject
                 attunementCheckbox.Checked = false;
             }
             index = item.Index;
-            tabIndex = tabIndex;
+            tabIndex = tab;
         }
 
         private void updateItemButton_Click(object sender, EventArgs e)
