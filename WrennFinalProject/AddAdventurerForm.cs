@@ -33,8 +33,11 @@ namespace WrennFinalProject
             }
             else
             {
+                string portraitPath = "..\\images\\";
+                portraitPath += classSelectDropdown.Text;
+                portraitPath += ".png";
                 Adventurer adventurer = new Adventurer(mainFormRef,
-                    adventurerNameTextbox.Text, "..\\images\\thumbnail.png");
+                    adventurerNameTextbox.Text, portraitPath);
                 Controller.addAdventurer(adventurer, tabIndex, mainFormRef);
                 this.Close();
             }

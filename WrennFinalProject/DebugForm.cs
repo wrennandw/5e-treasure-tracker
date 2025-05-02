@@ -15,7 +15,7 @@ namespace WrennFinalProject
         public DebugForm()
         {
             InitializeComponent();
-            label1.Text = Controller.adventurerTabs.Count.ToString();
+            label1.Text = Controller.adventurerTabs[1].portraitPath;
         }
     }
 }

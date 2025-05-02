@@ -25,10 +25,12 @@ namespace WrennFinalProject
         public MainForm()
         {
             InitializeComponent();
-            Adventurer allTab = new Adventurer(this, "All", "..\\images\\thumbnail.png");
-            Controller.addAdventurer(allTab, 0, this);
+            Adventurer allTab = new Adventurer(this, "All", "..\\images\\Equipment.png");
             // Container for instantiated Adventurers
-            
+            Controller.addAdventurer(allTab, 0, this);
+            portraitBox.ImageLocation = "..\\images\\Equipment.png";
+
+
         }
 
         // Update the Party Name field from the rename form
@@ -73,8 +75,8 @@ namespace WrennFinalProject
 
         private void clearListButton_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Clear all items from this list?", "Clear List",
-                MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show("Clear all items from this list?", 
+                "Clear List", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
             {
 
@@ -90,7 +92,10 @@ namespace WrennFinalProject
         {
             try
             {
-                //allListView.SelectedItems[0].Remove();
+                int tabIndex = treasureListTabControl.SelectedIndex;
+                ListViewItem item = Controller.adventurerTabs[tabIndex].
+                    treasureList.SelectedItems[0];
+                Controller.adventurerTabs[tabIndex].removeItem(item);
             }
             catch
             {
@@ -262,6 +267,26 @@ namespace WrennFinalProject
         {
             DebugForm debugForm = new DebugForm();
             debugForm.ShowDialog();
+        }
+
+        private void treasureListTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            string portraitPath = Controller.adventurerTabs[tabIndex].portraitPath;
+            portraitBox.ImageLocation = portraitPath;
+        }
+
+        private void portraitBox_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string portraitPath = openFileDialog.FileName;
+                int tabIndex = treasureListTabControl.SelectedIndex;
+                Controller.adventurerTabs[tabIndex].updatePortrait(portraitPath);
+                portraitBox.ImageLocation = portraitPath;
+            }
         }
     }
 }

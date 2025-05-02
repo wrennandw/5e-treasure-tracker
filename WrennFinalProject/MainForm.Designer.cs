@@ -286,6 +286,7 @@
             this.treasureListTabControl.SelectedIndex = 0;
             this.treasureListTabControl.Size = new System.Drawing.Size(502, 346);
             this.treasureListTabControl.TabIndex = 20;
+            this.treasureListTabControl.SelectedIndexChanged += new System.EventHandler(this.treasureListTabControl_SelectedIndexChanged);
             // 
             // openFileDialog
             // 
@@ -327,6 +328,7 @@
             this.portraitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.portraitBox.TabIndex = 24;
             this.portraitBox.TabStop = false;
+            this.portraitBox.Click += new System.EventHandler(this.portraitBox_Click);
             // 
             // label7
             // 
@@ -414,9 +416,9 @@
         private System.Windows.Forms.Button addPartyMemberButton;
         private System.Windows.Forms.Button removePartyMemberButton;
         public System.Windows.Forms.TabControl treasureListTabControl;
-        private System.Windows.Forms.PictureBox portraitBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.PictureBox portraitBox;
     }
 }
 

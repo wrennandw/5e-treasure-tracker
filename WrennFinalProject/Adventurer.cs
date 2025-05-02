@@ -12,21 +12,24 @@ namespace WrennFinalProject
         private MainForm mainFormRef;
         public ListView treasureList = new ListView();
         private TabPage tab = new TabPage();
+        public string portraitPath;
 
         // Constructor
-        public Adventurer(MainForm mainForm, string name, string portraitPath) 
+        public Adventurer(MainForm mainForm, string name, string portrait)
         {
             mainFormRef = mainForm;
             string _name = name;
-            
-            string _portraitPath = portraitPath;
-            //int[] _coinage = coinage;
+
+            portraitPath = portrait;
+
+            // Platinum, Gold, Silver, Copper
+            int[] _coinage = { 0, 0, 0, 0 };
 
             // Create the base list
             this.tab.Text = _name;
 
             // Initialize the ListView with the required properties
-            
+
             this.treasureList.BorderStyle = BorderStyle.FixedSingle;
             this.treasureList.Columns.Add("Item Name", 175, HorizontalAlignment.Left);
             this.treasureList.Columns.Add("Quantity", 60, HorizontalAlignment.Left);
@@ -45,9 +48,9 @@ namespace WrennFinalProject
 
             // Select the new tab
             //int index = mainFormRef.treasureListTabControl.SelectedIndex;
-            
+
         }
-        
+
         public void updateList()
         {
             // TODO
@@ -66,5 +69,15 @@ namespace WrennFinalProject
             this.treasureList.Items[index] = item;
         }
 
+        // Remove the selected item
+        public void removeItem(ListViewItem item)
+        {
+            item.Remove();
+        }
+
+        public void updatePortrait(string path)
+        {
+            this.portraitPath = path;
+        }
     }
 }
