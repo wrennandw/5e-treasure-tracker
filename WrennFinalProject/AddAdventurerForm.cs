@@ -33,12 +33,20 @@ namespace WrennFinalProject
             }
             else
             {
+                // Set the default portrait based on class selected
                 string portraitPath = "..\\images\\";
                 portraitPath += classSelectDropdown.Text;
                 portraitPath += ".png";
+
+                // Create the new tab
                 Adventurer adventurer = new Adventurer(mainFormRef,
                     adventurerNameTextbox.Text, portraitPath);
                 Controller.addAdventurer(adventurer, tabIndex, mainFormRef);
+                
+                // Select the new tab
+                int index = mainFormRef.treasureListTabControl.SelectedIndex;
+                mainFormRef.treasureListTabControl.SelectTab(index + 1);
+                
                 this.Close();
             }
         }

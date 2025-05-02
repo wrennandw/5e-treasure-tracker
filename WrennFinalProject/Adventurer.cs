@@ -46,15 +46,8 @@ namespace WrennFinalProject
             this.tab.Controls.Add(treasureList);
             mainFormRef.treasureListTabControl.TabPages.Add(this.tab);
 
-            // Select the new tab
-            //int index = mainFormRef.treasureListTabControl.SelectedIndex;
+            
 
-        }
-
-        public void updateList()
-        {
-            // TODO
-            // Needs to update the list when treasure is added/removed/edited
         }
 
         // Add an item from the AddItem form
@@ -75,11 +68,13 @@ namespace WrennFinalProject
             item.Remove();
         }
 
+        // Clear the items list
         public void clearList()
         {
             treasureList.Items.Clear();
         }
 
+        // Updates the portrait path when the user selects a new one
         public void updatePortrait(string path)
         {
             this.portraitPath = path;
