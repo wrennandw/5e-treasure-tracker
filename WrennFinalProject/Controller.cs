@@ -11,7 +11,7 @@ namespace WrennFinalProject
     public static class Controller
     {
         public static List<Adventurer> adventurerTabs = new List<Adventurer>();
-        public static MainForm mainFormRef = new MainForm();
+        public static MainForm mainFormRef;
 
         public static void addAdventurer(Adventurer adventurer)
         {

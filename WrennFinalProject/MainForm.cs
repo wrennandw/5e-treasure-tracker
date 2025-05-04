@@ -1,4 +1,4 @@
-﻿/*
+﻿/* 
 Project name: WrennFinalProject
 Author: Andrew Wrenn
 Date: 4/20/2025
@@ -8,9 +8,12 @@ Github: https://www.github.com/wrennandw/5e-treasure-tracker
 > Default portraits sourced from the Dungeons & Dragons 5th Edition
 Player's Handbook
 
-> Coin icons from https:// img.freepik.com/free-vector/realistic-coins
-    -transparent-set-isolated-icons-with-gold-silver-bronze-colored-money
-    -dime-items-vector-illustration_1284-78174.jpg
+> Coin icons (modified slightly) from https:// img.freepik.com/free-vector/
+    realistic-coins-transparent-set-isolated-icons-with-gold-silver-bronze
+    -colored-money-dime-items-vector-illustration_1284-78174.jpg
+
+I tried to keep my line lengths to 80 or less, but that's a lot trickier
+with C# than with Python!
 */
 
 using System;
@@ -28,6 +31,7 @@ using System.Windows.Forms;
 // plaintext; I was surprised it doesn't have out of the box support.
 using System.Text.Json;
 using System.Reflection;
+using System.Text.Json.Nodes;
 
 namespace WrennFinalProject
 {
@@ -43,6 +47,7 @@ namespace WrennFinalProject
             // Container for instantiated Adventurers
             Controller.addAdventurer(allTab);
             portraitBox.ImageLocation = "..\\images\\Equipment.png";
+            Console.WriteLine("Initialized.");
 
 
         }
@@ -106,12 +111,28 @@ namespace WrennFinalProject
                 int tabIndex = treasureListTabControl.SelectedIndex;
                 ListViewItem item = Controller.adventurerTabs[tabIndex].
                     treasureList.SelectedItems[0];
-                Controller.adventurerTabs[tabIndex].removeItem(item);
+                var confirm = MessageBox.Show("Delete this item?",
+                    "Delete Item", MessageBoxButtons.YesNo);
+
+                // Delete the item if Yes is chosen
+                if (confirm == DialogResult.Yes)
+                {
+                    Controller.adventurerTabs[tabIndex].removeItem(item);
+                }
+
+                // Deselect the item if No is chosen. Prevents an issue where
+                // the item was still selected but not focused
+                else
+                {
+                    Controller.adventurerTabs[tabIndex].treasureList.
+                        SelectedItems.Clear();
+                }
             }
             catch
             {
                 MessageBox.Show("No item is selected!");
             }
+            
         }
 
         private void editItemButton_Click(object sender, EventArgs e)
@@ -131,6 +152,7 @@ namespace WrennFinalProject
         }
 
         // Save button functionality
+        // The Serialize function made this surprisingly easy
         private void saveListButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -151,48 +173,26 @@ namespace WrennFinalProject
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                outputFile = File.CreateText(saveFileDialog.FileName);
-
-                ////////////////////////////
-                //*****OLD SAVE LOGIC*****//
-                //outputFile.WriteLine(partyNameLabel.Text);
-                // Write the coinage values to the file first
-                //string line = "";
-                //line += gpTextBox.Text;
-                //line += "|";
-                //line += spTextBox.Text;
-                //line += "|";
-                //line += cpTextBox.Text;
-                //line += "|";
-                //outputFile.WriteLine(line);
-                // Write each item to a line in the save file
-                // Might change this to JSON encoding later
-                //for (int i = 0; i < allListView.Items.Count; i++)
-                //{
-                /*line = allListView.Items[i].Text;
-                line += "|";
-                line += allListView.Items[i].SubItems[1].Text;
-                line += "|";
-                line += allListView.Items[i].SubItems[2].Text;
-                line += "|";
-                line += allListView.Items[i].SubItems[3].Text;
-                line += "|";
-                line += allListView.Items[i].SubItems[4].Text;
-                outputFile.WriteLine(line);*/
-                //}
-                //*****END OLD SAVE LOGIC*****//
-                ////////////////////////////////
-                // Testing JSON serialization
-                string name = JsonSerializer.Serialize(partyNameLabel.Text);
-                outputFile.WriteLine(name);
-                for (int i = 0; i < Controller.adventurerTabs.Count; ++i)
+                try
                 {
-                    Adventurer temp = Controller.adventurerTabs[i];
-                    string jsonString = JsonSerializer.Serialize(temp);
-                    //Console.Write(jsonString);
-                    outputFile.WriteLine(jsonString);
+                    outputFile = File.CreateText(saveFileDialog.FileName);
+
+                    // JSON serialization for save file
+                    string name = JsonSerializer.Serialize(
+                        partyNameLabel.Text);
+                    outputFile.WriteLine(name);
+                    for (int i = 0; i < Controller.adventurerTabs.Count; ++i)
+                    {
+                        Adventurer temp = Controller.adventurerTabs[i];
+                        string jsonString = JsonSerializer.Serialize(temp);
+                        outputFile.WriteLine(jsonString);
+                    }
+                    outputFile.Close();
                 }
-                outputFile.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -202,6 +202,10 @@ namespace WrennFinalProject
         }
 
         // Load button functionality
+        // This was a lot harder than I thought it would be,
+        // because the Deserialize function kept giving me trouble
+        // and I was probably going to have to rewrite the Adventurer
+        // class to make it work, so this ended up being the better option
         private void loadListButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -217,88 +221,141 @@ namespace WrennFinalProject
             // with this disabled
             openFileDialog.AutoUpgradeEnabled = false;
 
+            // Check if the user actually opens a file
+            // The function just terminates otherwise
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Log the Main Form so the deserializer can use it
-                Controller.logMainForm(this);
+                //Controller.logMainForm(this);
 
                 // Clear all existing adventurers and items
                 Controller.adventurerTabs[0].clearList();
                 if (Controller.adventurerTabs.Count > 1)
                 {
-                    for (int i = Controller.adventurerTabs.Count - 1; i > 1; --i)
+                    for (int i = Controller.adventurerTabs.Count - 1;
+                        i > 0; --i)
                     {
                         treasureListTabControl.TabPages.RemoveAt(i);
                         Controller.removeAdventurer(i);
                     }
                 }
+                
+                // Start reading the file
                 StreamReader inputFile = new StreamReader(
                     openFileDialog.FileName);
-
                 string currLine = inputFile.ReadLine();
-                partyNameLabel.Text = JsonSerializer.Deserialize<string>
-                    (currLine);
 
+                // Party name should be the first line
+                try
+                {
+                    partyNameLabel.Text = JsonSerializer.Deserialize<string>
+                    (currLine);
+                }
+                catch
+                {
+                    MessageBox.Show("Could not load. The save file appears" +
+                        " to be corrupted.");
+                    return;
+                }
+                
                 int adventurerIndex = 0;
+                                
                 while (inputFile.EndOfStream == false)
                 {
                     currLine = inputFile.ReadLine();
-                    Console.WriteLine(currLine);
                     try
                     {
-                        var adventurer = JsonSerializer.Deserialize<Adventurer>(currLine);
-                        
-                        //if (adventurerIndex != 0)
-                        //{
-                        //    Adventurer adventurer = new Adventurer(this);
-                        //    Controller.addAdventurer(adventurer);
-                        //}
-                        //Controller.adventurerTabs[adventurerIndex] = 
-                        //    JsonSerializer.Deserialize<Adventurer>(currLine);
-                        //adventurerIndex++;
-                        
-                    }
+                        // Initialize temp variables
+                        string tempPortrait;
+                        string tempName;
+                       
+                        int tempGp;
+                        int tempSp;
+                        int tempCp;
 
+                        // Parse into a JSON Node object
+                        JsonNode currAdventurer = JsonNode.Parse (currLine);
+
+                        // Read the data into temp variables
+                        tempPortrait = currAdventurer["portraitPath"]
+                            .ToString();
+                        tempName = currAdventurer["adventurerName"]
+                            .ToString();
+                        tempGp = currAdventurer["coinage"]["gp"]
+                            .GetValue<int>();
+                        tempSp = currAdventurer["coinage"]["sp"]
+                            .GetValue<int>();
+                        tempCp = currAdventurer["coinage"]["cp"]
+                            .GetValue<int>();
+
+                        // Create an array of JSON elements representing
+                        // inventory items
+                        var itemsArray = currAdventurer["adventurerItem"]
+                            .AsArray();
+                        int numItems = itemsArray.Count;
+
+                        // Handle the All tab
+                        if (adventurerIndex == 0) {
+                            
+                            // Restore and update the portrait
+                            Controller.adventurerTabs[0].portraitPath =
+                                tempPortrait;
+                            portraitBox.ImageLocation = tempPortrait;
+
+                            // Set the current coinage
+                            gpTextBox.Text = tempGp.ToString();
+                            spTextBox.Text = tempSp.ToString();
+                            cpTextBox.Text = tempCp.ToString();
+                        }
+
+                        // Handle any subsequent tabs
+                        else
+                        {
+                            // Create a new adventurer tab
+                            Adventurer adventurer = new Adventurer(
+                                this, tempName, tempPortrait);
+                            Controller.addAdventurer(adventurer);
+                        }
+
+                        // Restore coinage
+                        Controller.adventurerTabs[adventurerIndex].
+                            updateCoinage(0, tempGp);
+                        Controller.adventurerTabs[adventurerIndex].
+                            updateCoinage(1, tempSp);
+                        Controller.adventurerTabs[adventurerIndex].
+                            updateCoinage(2, tempCp);
+
+                        // Restore items
+                        for (int i = 0; i < numItems; ++i)
+                        {
+                            ListViewItem item = new ListViewItem(
+                                currAdventurer["adventurerItem"][i]
+                                ["name"].ToString());
+                            item.SubItems.Add(
+                                currAdventurer["adventurerItem"][i]
+                                ["quantity"].ToString());
+                            item.SubItems.Add(
+                                currAdventurer["adventurerItem"][i]
+                                ["type"].ToString());
+                            item.SubItems.Add(
+                                currAdventurer["adventurerItem"][i]
+                                ["rarity"].ToString());
+                            item.SubItems.Add(
+                                currAdventurer["adventurerItem"][i]
+                                ["attunement"].ToString());
+                            Controller.adventurerTabs[adventurerIndex]
+                                .addItem(item);
+                        }
+
+                        // Increment to move to the next adventurer
+                        adventurerIndex++;
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                         return;
                     }
                 }
-                ////////////////////////////
-                //*****OLD LOAD LOGIC*****//
-                //partyNameLabel.Text = inputFile.ReadLine();
-                //string currentLine;
-                //char delim = '|';
-                //currentLine = inputFile.ReadLine();
-                //string[] subItems = currentLine.Split(delim);
-                //gpTextBox.Text = subItems[1];
-                //spTextBox.Text = subItems[2];
-                //cpTextBox.Text = subItems[3];
-
-                //while (inputFile.EndOfStream == false)
-                //{
-                //    currentLine = inputFile.ReadLine();
-                //    subItems = currentLine.Split(delim);
-
-                //    try
-                //    {
-                //        ListViewItem item = new ListViewItem(subItems[0]);
-                //        item.SubItems.Add(subItems[1]);
-                //        item.SubItems.Add(subItems[2]);
-                //        item.SubItems.Add(subItems[3]);
-                //        item.SubItems.Add(subItems[4]);
-                //        //addItem(item);
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        MessageBox.Show(ex.Message);
-                //        return;
-                //    }
-                //}
-                //*****END OLD LOAD LOGIC*****//
-                ////////////////////////////////
-               
                 inputFile.Close();
             }
         }
@@ -336,6 +393,7 @@ namespace WrennFinalProject
             }
         }
 
+        // Update the portrait and coinage when a new tab is selected
         private void treasureListTabControl_SelectedIndexChanged(
             object sender, EventArgs e)
         {
@@ -351,6 +409,7 @@ namespace WrennFinalProject
                 .ToString();
         }
 
+        // Allow the user to load their own portrait images
         private void portraitBox_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
