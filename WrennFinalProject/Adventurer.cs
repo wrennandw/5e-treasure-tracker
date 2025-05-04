@@ -118,5 +118,74 @@ namespace WrennFinalProject
 
         // Updates coinage when the text boxes in the main form change,
         // or on save/load
+        public void updateCoinage(int type, int value)
+        {
+            // Type of coin updated
+            // 0 = gp, 1 = sp, 2 = cp
+            int _type = type;
+            if (_type == 0)
+            {
+                this.coinage["gp"] = value;
+                this.oldGp = this.coinage["gp"];
+            }
+
+            else if (_type == 1)
+            {
+                this.coinage["sp"] = value;
+                this.oldSp = this.coinage["sp"];
+            }
+
+            else if (type == 2)
+            {
+                this.coinage["cp"] = value;
+                this.oldCp = this.coinage["cp"];
+            }
+        }
+
+        public int revertCoinage(int type)
+        {
+            // Type of coin reverted
+            // 0 = gp, 1 = sp, 2 = cp
+            int _type = type;
+            if (_type == 0)
+            {
+                this.coinage["gp"] = this.oldGp;
+                return this.oldGp;
+            }
+            else if (_type == 1)
+            {
+                this.coinage["sp"] = this.oldSp;
+                return this.oldSp;
+            }
+            else if (_type == 2)
+            {
+                this.coinage["cp"] = this.oldCp;
+                return this.oldCp;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        // Logs values of coins when the text box is selected
+        public void logOldCoinage(int type, int value)
+        {
+            // Type of coin logged
+            // 0 = gp, 1 = sp, 2 = cp
+            int _type = type;
+            if (_type == 0)
+            {
+                this.oldGp = value;
+            }
+            else if (_type == 1)
+            {
+                this.oldSp = value;
+            }
+            else if (_type == 2)
+            {
+                this.oldCp = value;
+            }
+        }
     }
 }

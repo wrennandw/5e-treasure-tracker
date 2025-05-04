@@ -321,13 +321,67 @@ namespace WrennFinalProject
             int tabIndex = treasureListTabControl.SelectedIndex;
             try 
             {
-                Controller.adventurerTabs[tabIndex].coinage["gp"] = int.Parse(gpTextBox.Text);
+                int gp = int.Parse(gpTextBox.Text);
+                Controller.adventurerTabs[tabIndex].updateCoinage(0, gp);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                gpTextBox.Text = Controller.adventurerTabs[tabIndex].revertCoinage(0).ToString();
                 return;
             }
+        }
+
+        private void gpTextBox_Selected(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            int gp = int.Parse(gpTextBox.Text);
+            Controller.adventurerTabs[tabIndex].logOldCoinage(0, gp);
+        }
+
+        private void spTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            try
+            {
+                int sp = int.Parse(spTextBox.Text);
+                Controller.adventurerTabs[tabIndex].updateCoinage(1, sp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                spTextBox.Text = Controller.adventurerTabs[tabIndex].revertCoinage(1).ToString();
+                return;
+            }
+        }
+
+        private void spTextBox_Selected(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            int sp = int.Parse(spTextBox.Text);
+            Controller.adventurerTabs[tabIndex].logOldCoinage(1, sp);
+        }
+
+        private void cpTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            try
+            {
+                int cp = int.Parse(cpTextBox.Text);
+                Controller.adventurerTabs[tabIndex].updateCoinage(2, cp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                cpTextBox.Text = Controller.adventurerTabs[tabIndex].revertCoinage(2).ToString();
+                return;
+            }
+        }
+        private void cpTextBox_Selected(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            int cp = int.Parse(cpTextBox.Text);
+            Controller.adventurerTabs[tabIndex].logOldCoinage(2, cp);
         }
     }
 }

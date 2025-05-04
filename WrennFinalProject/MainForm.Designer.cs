@@ -175,6 +175,7 @@
             this.spTextBox.Text = "0";
             this.spTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.spTextBox, "Silver Pieces");
+            this.spTextBox.TextChanged += new System.EventHandler(this.spTextBox_TextChanged);
             // 
             // label4
             // 
@@ -199,6 +200,7 @@
             this.cpTextBox.Text = "0";
             this.cpTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.cpTextBox, "Copper Pieces");
+            this.cpTextBox.TextChanged += new System.EventHandler(this.cpTextBox_TextChanged);
             // 
             // label5
             // 
