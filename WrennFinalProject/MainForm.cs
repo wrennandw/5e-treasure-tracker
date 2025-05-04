@@ -12,6 +12,9 @@ Player's Handbook
     realistic-coins-transparent-set-isolated-icons-with-gold-silver-bronze
     -colored-money-dime-items-vector-illustration_1284-78174.jpg
 
+> Treasure chest (app icon) from https:// www.flaticon.com/free
+    -icons/treasure-chest
+
 I tried to keep my line lengths to 80 or less, but that's a lot trickier
 with C# than with Python!
 */
@@ -56,13 +59,13 @@ namespace WrennFinalProject
         public void updatePartyName(string name)
         {
             partyNameLabel.Text = name;
-
+            
             // Adjust the party name font size based on length
-            if (name.Length < 24)
+            if (name.Length < 32)
             {
                 partyNameLabel.Font = new Font("Book Antiqua", 24);
             }
-            else if (name.Length < 28)
+            else if (name.Length < 36)
             {
                 partyNameLabel.Font = new Font("Book Antiqua", 20);
             }
@@ -501,6 +504,15 @@ namespace WrennFinalProject
             int tabIndex = treasureListTabControl.SelectedIndex;
             int cp = int.Parse(cpTextBox.Text);
             Controller.adventurerTabs[tabIndex].logOldCoinage(2, cp);
+        }
+
+        // Display a form to rename the selected adventurer
+        private void renameButton_Click(object sender, EventArgs e)
+        {
+            int index = treasureListTabControl.SelectedIndex;
+            RenameAdventurerForm adventurerNameForm = 
+                new RenameAdventurerForm(this, index);
+            adventurerNameForm.ShowDialog();
         }
     }
 }

@@ -31,9 +31,9 @@ namespace WrennFinalProject
             if (this.textBox1.Text != "")   
             {
                 // Warn if name is too long
-                if (this.textBox1.Text.Length > 35) 
+                if (this.textBox1.Text.Length > 45) 
                 {
-                    MessageBox.Show("Maximum name length is 35 characters!");
+                    MessageBox.Show("Maximum name length is 45 characters!");
                 }
                 // Send the new name to the updater
                 else

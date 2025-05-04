@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditItemForm));
             this.cancelButton = new System.Windows.Forms.Button();
             this.updateItemButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -200,6 +201,7 @@
             this.Controls.Add(this.itemNameBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditItemForm";

@@ -69,10 +69,10 @@
             // 
             this.partyNameLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.partyNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.partyNameLabel.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partyNameLabel.Font = new System.Drawing.Font("Book Antiqua", 24F);
             this.partyNameLabel.Location = new System.Drawing.Point(12, 12);
             this.partyNameLabel.Name = "partyNameLabel";
-            this.partyNameLabel.Size = new System.Drawing.Size(498, 40);
+            this.partyNameLabel.Size = new System.Drawing.Size(517, 40);
             this.partyNameLabel.TabIndex = 0;
             this.partyNameLabel.Text = "Click to Name Your Party";
             this.partyNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -83,7 +83,7 @@
             // 
             this.addItemButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.addItemButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addItemButton.Location = new System.Drawing.Point(48, 416);
+            this.addItemButton.Location = new System.Drawing.Point(55, 416);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(80, 25);
             this.addItemButton.TabIndex = 2;
@@ -95,7 +95,7 @@
             // 
             this.deleteItemButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.deleteItemButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteItemButton.Location = new System.Drawing.Point(220, 416);
+            this.deleteItemButton.Location = new System.Drawing.Point(227, 416);
             this.deleteItemButton.Name = "deleteItemButton";
             this.deleteItemButton.Size = new System.Drawing.Size(80, 25);
             this.deleteItemButton.TabIndex = 4;
@@ -107,7 +107,7 @@
             // 
             this.editItemButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.editItemButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editItemButton.Location = new System.Drawing.Point(134, 416);
+            this.editItemButton.Location = new System.Drawing.Point(141, 416);
             this.editItemButton.Name = "editItemButton";
             this.editItemButton.Size = new System.Drawing.Size(80, 25);
             this.editItemButton.TabIndex = 3;
@@ -119,7 +119,7 @@
             // 
             this.clearListButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.clearListButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearListButton.Location = new System.Drawing.Point(306, 416);
+            this.clearListButton.Location = new System.Drawing.Point(313, 416);
             this.clearListButton.Name = "clearListButton";
             this.clearListButton.Size = new System.Drawing.Size(80, 25);
             this.clearListButton.TabIndex = 5;
@@ -207,17 +207,17 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(565, 434);
+            this.label5.Location = new System.Drawing.Point(580, 434);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 16;
-            this.label5.Text = "v0.4 | Andrew Wrenn";
+            this.label5.Text = "v0.5 | Andrew Wrenn";
             // 
             // saveListButton
             // 
             this.saveListButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.saveListButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveListButton.Location = new System.Drawing.Point(526, 288);
+            this.saveListButton.Location = new System.Drawing.Point(541, 288);
             this.saveListButton.Name = "saveListButton";
             this.saveListButton.Size = new System.Drawing.Size(70, 25);
             this.saveListButton.TabIndex = 10;
@@ -229,7 +229,7 @@
             // 
             this.loadListButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.loadListButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadListButton.Location = new System.Drawing.Point(604, 288);
+            this.loadListButton.Location = new System.Drawing.Point(619, 288);
             this.loadListButton.Name = "loadListButton";
             this.loadListButton.Size = new System.Drawing.Size(70, 25);
             this.loadListButton.TabIndex = 11;
@@ -241,7 +241,7 @@
             // 
             this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.exitButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(392, 416);
+            this.exitButton.Location = new System.Drawing.Point(399, 416);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(80, 25);
             this.exitButton.TabIndex = 6;
@@ -258,7 +258,7 @@
             this.treasureListTabControl.Location = new System.Drawing.Point(12, 64);
             this.treasureListTabControl.Name = "treasureListTabControl";
             this.treasureListTabControl.SelectedIndex = 0;
-            this.treasureListTabControl.Size = new System.Drawing.Size(502, 346);
+            this.treasureListTabControl.Size = new System.Drawing.Size(517, 346);
             this.treasureListTabControl.TabIndex = 1;
             this.treasureListTabControl.SelectedIndexChanged += new System.EventHandler(this.treasureListTabControl_SelectedIndexChanged);
             // 
@@ -270,7 +270,7 @@
             // 
             this.addPartyMemberButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.addPartyMemberButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPartyMemberButton.Location = new System.Drawing.Point(520, 195);
+            this.addPartyMemberButton.Location = new System.Drawing.Point(535, 195);
             this.addPartyMemberButton.Name = "addPartyMemberButton";
             this.addPartyMemberButton.Size = new System.Drawing.Size(160, 25);
             this.addPartyMemberButton.TabIndex = 7;
@@ -282,7 +282,7 @@
             // 
             this.removePartyMemberButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.removePartyMemberButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removePartyMemberButton.Location = new System.Drawing.Point(520, 257);
+            this.removePartyMemberButton.Location = new System.Drawing.Point(535, 257);
             this.removePartyMemberButton.Name = "removePartyMemberButton";
             this.removePartyMemberButton.Size = new System.Drawing.Size(160, 25);
             this.removePartyMemberButton.TabIndex = 9;
@@ -296,7 +296,7 @@
             this.portraitBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.portraitBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.portraitBox.InitialImage = null;
-            this.portraitBox.Location = new System.Drawing.Point(520, 12);
+            this.portraitBox.Location = new System.Drawing.Point(535, 12);
             this.portraitBox.Name = "portraitBox";
             this.portraitBox.Size = new System.Drawing.Size(160, 160);
             this.portraitBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -309,7 +309,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(541, 175);
+            this.label7.Location = new System.Drawing.Point(556, 175);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 17);
             this.label7.TabIndex = 25;
@@ -319,12 +319,13 @@
             // 
             this.renameButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.renameButton.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.renameButton.Location = new System.Drawing.Point(520, 226);
+            this.renameButton.Location = new System.Drawing.Point(535, 226);
             this.renameButton.Name = "renameButton";
             this.renameButton.Size = new System.Drawing.Size(160, 25);
             this.renameButton.TabIndex = 8;
             this.renameButton.Text = "Rename Adventurer";
             this.renameButton.UseVisualStyleBackColor = true;
+            this.renameButton.Click += new System.EventHandler(this.renameButton_Click);
             // 
             // groupBox1
             // 
@@ -339,7 +340,7 @@
             this.groupBox1.Controls.Add(this.cpTextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(520, 319);
+            this.groupBox1.Location = new System.Drawing.Point(535, 319);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(160, 112);
             this.groupBox1.TabIndex = 28;
@@ -381,7 +382,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(704, 461);
+            this.ClientSize = new System.Drawing.Size(719, 461);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.renameButton);
             this.Controls.Add(this.label7);
@@ -398,7 +399,8 @@
             this.Controls.Add(this.deleteItemButton);
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.partyNameLabel);
-            this.MinimumSize = new System.Drawing.Size(720, 500);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(735, 500);
             this.Name = "MainForm";
             this.Text = "D&D 5e Treasure Tracker";
             ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).EndInit();
@@ -420,11 +422,8 @@
         private System.Windows.Forms.Button editItemButton;
         private System.Windows.Forms.Button clearListButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox gpTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox spTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox cpTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button saveListButton;
@@ -442,6 +441,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.TextBox gpTextBox;
+        public System.Windows.Forms.TextBox spTextBox;
+        public System.Windows.Forms.TextBox cpTextBox;
     }
 }
 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WrennFinalProject
 {
@@ -68,6 +69,7 @@ namespace WrennFinalProject
                     int tempGp = defItems["coinage"]["gp"].GetValue<int>();
                     Controller.adventurerTabs[index+1]
                         .updateCoinage(0, tempGp);
+                    mainFormRef.gpTextBox.Text = tempGp.ToString();
 
                     // Create an array of JSON elements representing
                     // inventory items
