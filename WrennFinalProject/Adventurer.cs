@@ -16,10 +16,10 @@ namespace WrennFinalProject
         public ListView treasureList = new ListView();
         
         [JsonInclude]
-        public string portraitPath;
+        public string portraitPath { get; set; }
 
         [JsonInclude]
-        public string adventurerName;
+        public string adventurerName { get; set; }
 
         [JsonInclude]
         private List<Item> adventurerItem = new List<Item>();
@@ -37,8 +37,43 @@ namespace WrennFinalProject
         private int oldCp = 0;
 
         // Constructor
+        [JsonConstructor]
+        public Adventurer()
+        {
+            // Initialize basic fields
+            mainFormRef = Controller.mainFormRef;
+            adventurerName = adventurerName;
+            portraitPath = portraitPath;
+
+            // Create the base list
+            this.tab.Text = adventurerName;
+
+            // Initialize the ListView with the required properties
+            this.treasureList.BorderStyle = BorderStyle.FixedSingle;
+            this.treasureList.Columns.Add("Item Name", 175,
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Quantity", 60,
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Type", 105,
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Rarity", 75,
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Attunement", 75,
+                HorizontalAlignment.Left);
+            this.treasureList.Dock = DockStyle.Fill;
+            this.treasureList.View = View.Details;
+            this.treasureList.GridLines = true;
+            this.treasureList.FullRowSelect = true;
+            this.treasureList.Activation = ItemActivation.OneClick;
+
+            // Add the list to the tab and the new tab to the tab control
+            this.tab.Controls.Add(treasureList);
+            mainFormRef.treasureListTabControl.TabPages.Add(this.tab);
+        }
+
         public Adventurer(MainForm mainForm, string name, string portrait)
         {
+            // Initialize basic fields
             mainFormRef = mainForm;
             adventurerName = name;
             portraitPath = portrait;

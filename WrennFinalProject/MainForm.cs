@@ -41,7 +41,7 @@ namespace WrennFinalProject
             Adventurer allTab = new Adventurer(this, 
                 "All", "..\\images\\Equipment.png");
             // Container for instantiated Adventurers
-            Controller.addAdventurer(allTab, 0, this);
+            Controller.addAdventurer(allTab);
             portraitBox.ImageLocation = "..\\images\\Equipment.png";
 
 
@@ -219,46 +219,86 @@ namespace WrennFinalProject
 
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                // Log the Main Form so the deserializer can use it
+                Controller.logMainForm(this);
+
                 // Clear all existing adventurers and items
                 Controller.adventurerTabs[0].clearList();
-                for (int i = Controller.adventurerTabs.Count; i > 0; --i)
+                if (Controller.adventurerTabs.Count > 1)
                 {
-                    treasureListTabControl.TabPages.RemoveAt(i);
-                    Controller.removeAdventurer(i);
+                    for (int i = Controller.adventurerTabs.Count - 1; i > 1; --i)
+                    {
+                        treasureListTabControl.TabPages.RemoveAt(i);
+                        Controller.removeAdventurer(i);
+                    }
                 }
-
                 StreamReader inputFile = new StreamReader(
                     openFileDialog.FileName);
 
-                partyNameLabel.Text = inputFile.ReadLine();
-                string currentLine;
-                char delim = '|';
-                currentLine = inputFile.ReadLine();
-                string[] subItems = currentLine.Split(delim);
-                gpTextBox.Text = subItems[1];
-                spTextBox.Text = subItems[2];
-                cpTextBox.Text = subItems[3];
+                string currLine = inputFile.ReadLine();
+                partyNameLabel.Text = JsonSerializer.Deserialize<string>
+                    (currLine);
 
+                int adventurerIndex = 0;
                 while (inputFile.EndOfStream == false)
                 {
-                    currentLine = inputFile.ReadLine();
-                    subItems = currentLine.Split(delim);
-
+                    currLine = inputFile.ReadLine();
+                    Console.WriteLine(currLine);
                     try
                     {
-                        ListViewItem item = new ListViewItem(subItems[0]);
-                        item.SubItems.Add(subItems[1]);
-                        item.SubItems.Add(subItems[2]);
-                        item.SubItems.Add(subItems[3]);
-                        item.SubItems.Add(subItems[4]);
-                        //addItem(item);
+                        var adventurer = JsonSerializer.Deserialize<Adventurer>(currLine);
+                        
+                        //if (adventurerIndex != 0)
+                        //{
+                        //    Adventurer adventurer = new Adventurer(this);
+                        //    Controller.addAdventurer(adventurer);
+                        //}
+                        //Controller.adventurerTabs[adventurerIndex] = 
+                        //    JsonSerializer.Deserialize<Adventurer>(currLine);
+                        //adventurerIndex++;
+                        
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                         return;
                     }
                 }
+                ////////////////////////////
+                //*****OLD LOAD LOGIC*****//
+                //partyNameLabel.Text = inputFile.ReadLine();
+                //string currentLine;
+                //char delim = '|';
+                //currentLine = inputFile.ReadLine();
+                //string[] subItems = currentLine.Split(delim);
+                //gpTextBox.Text = subItems[1];
+                //spTextBox.Text = subItems[2];
+                //cpTextBox.Text = subItems[3];
+
+                //while (inputFile.EndOfStream == false)
+                //{
+                //    currentLine = inputFile.ReadLine();
+                //    subItems = currentLine.Split(delim);
+
+                //    try
+                //    {
+                //        ListViewItem item = new ListViewItem(subItems[0]);
+                //        item.SubItems.Add(subItems[1]);
+                //        item.SubItems.Add(subItems[2]);
+                //        item.SubItems.Add(subItems[3]);
+                //        item.SubItems.Add(subItems[4]);
+                //        //addItem(item);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        MessageBox.Show(ex.Message);
+                //        return;
+                //    }
+                //}
+                //*****END OLD LOAD LOGIC*****//
+                ////////////////////////////////
+               
                 inputFile.Close();
             }
         }

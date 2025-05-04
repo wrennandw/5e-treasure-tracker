@@ -11,19 +11,21 @@ namespace WrennFinalProject
     public static class Controller
     {
         public static List<Adventurer> adventurerTabs = new List<Adventurer>();
-        
-        public static void addAdventurer(Adventurer adventurer, int index, 
-            MainForm mainForm)
+        public static MainForm mainFormRef = new MainForm();
+
+        public static void addAdventurer(Adventurer adventurer)
         {
             adventurerTabs.Add(adventurer);
-            MainForm mainFormRef = mainForm;
         }
 
         public static void removeAdventurer(int index)
         {
-            
             adventurerTabs.RemoveAt(index);
-            
+        }
+
+        public static void logMainForm(MainForm mainForm)
+        {
+            mainFormRef = mainForm;
         }
     }
 }

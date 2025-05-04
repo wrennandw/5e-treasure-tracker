@@ -41,7 +41,7 @@ namespace WrennFinalProject
                 // Create the new tab
                 Adventurer adventurer = new Adventurer(mainFormRef,
                     adventurerNameTextbox.Text, portraitPath);
-                Controller.addAdventurer(adventurer, tabIndex, mainFormRef);
+                Controller.addAdventurer(adventurer);
                 
                 // Select the new tab
                 int index = mainFormRef.treasureListTabControl.SelectedIndex;
