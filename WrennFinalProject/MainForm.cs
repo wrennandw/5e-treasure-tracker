@@ -22,6 +22,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// I had to add the System.Text.Json package; I wanted to use JSON for my save/load system because
+// I'm very familiar with it and prefer it to plaintext; I was surprised it doesn't have
+// out of the box support.
+using System.Text.Json;
+using System.Reflection;
 
 namespace WrennFinalProject
 {
@@ -145,34 +150,46 @@ namespace WrennFinalProject
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 outputFile = File.CreateText(saveFileDialog.FileName);
-                
-                outputFile.WriteLine(partyNameLabel.Text);
+
+                ////////////////////////////
+                //*****OLD SAVE LOGIC*****//
+                //outputFile.WriteLine(partyNameLabel.Text);
                 // Write the coinage values to the file first
-                string line = "";
-               // line += ppTextBox.Text;
-              //  line += "|";
-                line += gpTextBox.Text;
-                line += "|";
-                line += spTextBox.Text;
-                line += "|";
-                line += cpTextBox.Text;
-                line += "|";
-                outputFile.WriteLine(line);
+                //string line = "";
+                //line += gpTextBox.Text;
+                //line += "|";
+                //line += spTextBox.Text;
+                //line += "|";
+                //line += cpTextBox.Text;
+                //line += "|";
+                //outputFile.WriteLine(line);
                 // Write each item to a line in the save file
                 // Might change this to JSON encoding later
                 //for (int i = 0; i < allListView.Items.Count; i++)
                 //{
-                    /*line = allListView.Items[i].Text;
-                    line += "|";
-                    line += allListView.Items[i].SubItems[1].Text;
-                    line += "|";
-                    line += allListView.Items[i].SubItems[2].Text;
-                    line += "|";
-                    line += allListView.Items[i].SubItems[3].Text;
-                    line += "|";
-                    line += allListView.Items[i].SubItems[4].Text;
-                    outputFile.WriteLine(line);*/
+                /*line = allListView.Items[i].Text;
+                line += "|";
+                line += allListView.Items[i].SubItems[1].Text;
+                line += "|";
+                line += allListView.Items[i].SubItems[2].Text;
+                line += "|";
+                line += allListView.Items[i].SubItems[3].Text;
+                line += "|";
+                line += allListView.Items[i].SubItems[4].Text;
+                outputFile.WriteLine(line);*/
                 //}
+                //*****END OLD SAVE LOGIC*****//
+                ////////////////////////////////
+                // Testing JSON serialization
+                string name = JsonSerializer.Serialize(partyNameLabel.Text);
+                outputFile.WriteLine(name);
+                for (int i = 0; i < Controller.adventurerTabs.Count; ++i)
+                {
+                    Adventurer temp = Controller.adventurerTabs[i];
+                    string jsonString = JsonSerializer.Serialize(temp);
+                    //Console.Write(jsonString);
+                    outputFile.WriteLine(jsonString);
+                }
                 outputFile.Close();
             }
             else
@@ -185,7 +202,6 @@ namespace WrennFinalProject
         // Load button functionality
         private void loadListButton_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Functionality not yet implemented.");
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "..\\savedata";
             
@@ -201,7 +217,14 @@ namespace WrennFinalProject
 
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                //allListView.Items.Clear();
+                // Clear all existing adventurers and items
+                Controller.adventurerTabs[0].clearList();
+                for (int i = Controller.adventurerTabs.Count; i > 0; --i)
+                {
+                    treasureListTabControl.TabPages.RemoveAt(i);
+                    Controller.removeAdventurer(i);
+                }
+
                 StreamReader inputFile = new StreamReader(openFileDialog.FileName);
 
                 partyNameLabel.Text = inputFile.ReadLine();
@@ -209,7 +232,6 @@ namespace WrennFinalProject
                 char delim = '|';
                 currentLine = inputFile.ReadLine();
                 string[] subItems = currentLine.Split(delim);
-                //ppTextBox.Text = subItems[0];
                 gpTextBox.Text = subItems[1];
                 spTextBox.Text = subItems[2];
                 cpTextBox.Text = subItems[3];
@@ -291,6 +313,20 @@ namespace WrennFinalProject
                 int tabIndex = treasureListTabControl.SelectedIndex;
                 Controller.adventurerTabs[tabIndex].updatePortrait(portraitPath);
                 portraitBox.ImageLocation = portraitPath;
+            }
+        }
+
+        private void gpTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int tabIndex = treasureListTabControl.SelectedIndex;
+            try 
+            {
+                Controller.adventurerTabs[tabIndex].coinage["gp"] = int.Parse(gpTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
     }

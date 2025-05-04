@@ -15,7 +15,6 @@ namespace WrennFinalProject
         {
             adventurerTabs.Add(adventurer);
             MainForm mainFormRef = mainForm;
-            //mainFormRef.treasureListTabControl.SelectTab(index + 1);
         }
 
         public static void removeAdventurer(int index)
