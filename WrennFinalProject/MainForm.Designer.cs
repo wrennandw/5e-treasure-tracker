@@ -98,7 +98,7 @@
             this.deleteItemButton.Location = new System.Drawing.Point(220, 416);
             this.deleteItemButton.Name = "deleteItemButton";
             this.deleteItemButton.Size = new System.Drawing.Size(80, 25);
-            this.deleteItemButton.TabIndex = 3;
+            this.deleteItemButton.TabIndex = 4;
             this.deleteItemButton.Text = "Delete Item";
             this.deleteItemButton.UseVisualStyleBackColor = true;
             this.deleteItemButton.Click += new System.EventHandler(this.deleteItemButton_Click);
@@ -110,7 +110,7 @@
             this.editItemButton.Location = new System.Drawing.Point(134, 416);
             this.editItemButton.Name = "editItemButton";
             this.editItemButton.Size = new System.Drawing.Size(80, 25);
-            this.editItemButton.TabIndex = 4;
+            this.editItemButton.TabIndex = 3;
             this.editItemButton.Text = "Edit Item";
             this.editItemButton.UseVisualStyleBackColor = true;
             this.editItemButton.Click += new System.EventHandler(this.editItemButton_Click);
@@ -146,7 +146,7 @@
             this.gpTextBox.Location = new System.Drawing.Point(48, 23);
             this.gpTextBox.Name = "gpTextBox";
             this.gpTextBox.Size = new System.Drawing.Size(49, 21);
-            this.gpTextBox.TabIndex = 8;
+            this.gpTextBox.TabIndex = 12;
             this.gpTextBox.Text = "0";
             this.gpTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.gpTextBox, "Gold Pieces");
@@ -171,7 +171,7 @@
             this.spTextBox.Location = new System.Drawing.Point(48, 50);
             this.spTextBox.Name = "spTextBox";
             this.spTextBox.Size = new System.Drawing.Size(49, 21);
-            this.spTextBox.TabIndex = 10;
+            this.spTextBox.TabIndex = 13;
             this.spTextBox.Text = "0";
             this.spTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.spTextBox, "Silver Pieces");
@@ -196,7 +196,7 @@
             this.cpTextBox.Location = new System.Drawing.Point(48, 76);
             this.cpTextBox.Name = "cpTextBox";
             this.cpTextBox.Size = new System.Drawing.Size(49, 21);
-            this.cpTextBox.TabIndex = 12;
+            this.cpTextBox.TabIndex = 14;
             this.cpTextBox.Text = "0";
             this.cpTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.cpTextBox, "Copper Pieces");
@@ -220,7 +220,7 @@
             this.saveListButton.Location = new System.Drawing.Point(526, 288);
             this.saveListButton.Name = "saveListButton";
             this.saveListButton.Size = new System.Drawing.Size(70, 25);
-            this.saveListButton.TabIndex = 17;
+            this.saveListButton.TabIndex = 10;
             this.saveListButton.Text = "Save";
             this.saveListButton.UseVisualStyleBackColor = true;
             this.saveListButton.Click += new System.EventHandler(this.saveListButton_Click);
@@ -232,7 +232,7 @@
             this.loadListButton.Location = new System.Drawing.Point(604, 288);
             this.loadListButton.Name = "loadListButton";
             this.loadListButton.Size = new System.Drawing.Size(70, 25);
-            this.loadListButton.TabIndex = 18;
+            this.loadListButton.TabIndex = 11;
             this.loadListButton.Text = "Load";
             this.loadListButton.UseVisualStyleBackColor = true;
             this.loadListButton.Click += new System.EventHandler(this.loadListButton_Click);
@@ -244,7 +244,7 @@
             this.exitButton.Location = new System.Drawing.Point(392, 416);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(80, 25);
-            this.exitButton.TabIndex = 19;
+            this.exitButton.TabIndex = 6;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -259,7 +259,7 @@
             this.treasureListTabControl.Name = "treasureListTabControl";
             this.treasureListTabControl.SelectedIndex = 0;
             this.treasureListTabControl.Size = new System.Drawing.Size(502, 346);
-            this.treasureListTabControl.TabIndex = 20;
+            this.treasureListTabControl.TabIndex = 1;
             this.treasureListTabControl.SelectedIndexChanged += new System.EventHandler(this.treasureListTabControl_SelectedIndexChanged);
             // 
             // openFileDialog
@@ -273,7 +273,7 @@
             this.addPartyMemberButton.Location = new System.Drawing.Point(520, 195);
             this.addPartyMemberButton.Name = "addPartyMemberButton";
             this.addPartyMemberButton.Size = new System.Drawing.Size(160, 25);
-            this.addPartyMemberButton.TabIndex = 22;
+            this.addPartyMemberButton.TabIndex = 7;
             this.addPartyMemberButton.Text = "Add Adventurer";
             this.addPartyMemberButton.UseVisualStyleBackColor = true;
             this.addPartyMemberButton.Click += new System.EventHandler(this.addPartyMemberButton_Click);
@@ -285,7 +285,7 @@
             this.removePartyMemberButton.Location = new System.Drawing.Point(520, 257);
             this.removePartyMemberButton.Name = "removePartyMemberButton";
             this.removePartyMemberButton.Size = new System.Drawing.Size(160, 25);
-            this.removePartyMemberButton.TabIndex = 23;
+            this.removePartyMemberButton.TabIndex = 9;
             this.removePartyMemberButton.Text = "Remove Adventurer";
             this.removePartyMemberButton.UseVisualStyleBackColor = true;
             this.removePartyMemberButton.Click += new System.EventHandler(this.removePartyMemberButton_Click);
@@ -322,7 +322,7 @@
             this.renameButton.Location = new System.Drawing.Point(520, 226);
             this.renameButton.Name = "renameButton";
             this.renameButton.Size = new System.Drawing.Size(160, 25);
-            this.renameButton.TabIndex = 27;
+            this.renameButton.TabIndex = 8;
             this.renameButton.Text = "Rename Adventurer";
             this.renameButton.UseVisualStyleBackColor = true;
             // 

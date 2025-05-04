@@ -80,14 +80,21 @@
             this.typeComboBox.Items.AddRange(new object[] {
             "Weapon",
             "Armor",
+            "Ammunition",
             "Adventuring Gear",
             "Wondrous Item",
-            "Consumable",
-            "Valuable"});
+            "Ring",
+            "Rod",
+            "Staff",
+            "Wand",
+            "Potion",
+            "Scroll",
+            "Gemstone",
+            "Art Object"});
             this.typeComboBox.Location = new System.Drawing.Point(76, 99);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(121, 23);
-            this.typeComboBox.TabIndex = 3;
+            this.typeComboBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -126,7 +133,7 @@
             this.attunementCheckbox.Location = new System.Drawing.Point(206, 102);
             this.attunementCheckbox.Name = "attunementCheckbox";
             this.attunementCheckbox.Size = new System.Drawing.Size(136, 19);
-            this.attunementCheckbox.TabIndex = 7;
+            this.attunementCheckbox.TabIndex = 3;
             this.attunementCheckbox.Text = "Requires Attunement?";
             this.toolTip1.SetToolTip(this.attunementCheckbox, "Certain magical items require an hour of attunment to use. Check this box if this" +
         " applies to this item.");
@@ -147,7 +154,7 @@
             this.rarityComboBox.Location = new System.Drawing.Point(76, 136);
             this.rarityComboBox.Name = "rarityComboBox";
             this.rarityComboBox.Size = new System.Drawing.Size(121, 23);
-            this.rarityComboBox.TabIndex = 8;
+            this.rarityComboBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -164,7 +171,7 @@
             this.addItemButton.Location = new System.Drawing.Point(99, 178);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(75, 23);
-            this.addItemButton.TabIndex = 11;
+            this.addItemButton.TabIndex = 6;
             this.addItemButton.Text = "Add Item";
             this.addItemButton.UseVisualStyleBackColor = true;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
@@ -174,7 +181,7 @@
             this.cancelButton.Location = new System.Drawing.Point(180, 178);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 12;
+            this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);

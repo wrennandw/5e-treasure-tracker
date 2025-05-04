@@ -95,7 +95,7 @@
             this.defaultGearCheckbox.Location = new System.Drawing.Point(189, 66);
             this.defaultGearCheckbox.Name = "defaultGearCheckbox";
             this.defaultGearCheckbox.Size = new System.Drawing.Size(110, 17);
-            this.defaultGearCheckbox.TabIndex = 5;
+            this.defaultGearCheckbox.TabIndex = 3;
             this.defaultGearCheckbox.Text = "Add default gear?";
             this.toolTip1.SetToolTip(this.defaultGearCheckbox, "Default gear assumes the quickstart options for the character as listed in the Pl" +
         "ayer\'s Handbook");
@@ -106,7 +106,7 @@
             this.createAdventurerButton.Location = new System.Drawing.Point(43, 101);
             this.createAdventurerButton.Name = "createAdventurerButton";
             this.createAdventurerButton.Size = new System.Drawing.Size(111, 25);
-            this.createAdventurerButton.TabIndex = 6;
+            this.createAdventurerButton.TabIndex = 4;
             this.createAdventurerButton.Text = "Create Adventurer";
             this.createAdventurerButton.UseVisualStyleBackColor = true;
             this.createAdventurerButton.Click += new System.EventHandler(this.createAdventurerButton_Click);
@@ -116,7 +116,7 @@
             this.cancelButton.Location = new System.Drawing.Point(160, 101);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(111, 25);
-            this.cancelButton.TabIndex = 7;
+            this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);

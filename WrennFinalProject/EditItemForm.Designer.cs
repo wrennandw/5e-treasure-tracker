@@ -47,7 +47,7 @@
             this.cancelButton.Location = new System.Drawing.Point(180, 177);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 25;
+            this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -57,7 +57,7 @@
             this.updateItemButton.Location = new System.Drawing.Point(99, 177);
             this.updateItemButton.Name = "updateItemButton";
             this.updateItemButton.Size = new System.Drawing.Size(75, 23);
-            this.updateItemButton.TabIndex = 24;
+            this.updateItemButton.TabIndex = 6;
             this.updateItemButton.Text = "Update Item";
             this.updateItemButton.UseVisualStyleBackColor = true;
             this.updateItemButton.Click += new System.EventHandler(this.updateItemButton_Click);
@@ -87,7 +87,7 @@
             this.rarityComboBox.Location = new System.Drawing.Point(76, 137);
             this.rarityComboBox.Name = "rarityComboBox";
             this.rarityComboBox.Size = new System.Drawing.Size(121, 23);
-            this.rarityComboBox.TabIndex = 21;
+            this.rarityComboBox.TabIndex = 4;
             // 
             // attunementCheckbox
             // 
@@ -96,7 +96,7 @@
             this.attunementCheckbox.Location = new System.Drawing.Point(206, 103);
             this.attunementCheckbox.Name = "attunementCheckbox";
             this.attunementCheckbox.Size = new System.Drawing.Size(136, 19);
-            this.attunementCheckbox.TabIndex = 20;
+            this.attunementCheckbox.TabIndex = 3;
             this.attunementCheckbox.Text = "Requires Attunement?";
             this.attunementCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -116,7 +116,7 @@
             this.quantityBox.Location = new System.Drawing.Point(255, 137);
             this.quantityBox.Name = "quantityBox";
             this.quantityBox.Size = new System.Drawing.Size(31, 21);
-            this.quantityBox.TabIndex = 18;
+            this.quantityBox.TabIndex = 5;
             this.quantityBox.Text = "1";
             this.quantityBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -138,14 +138,21 @@
             this.typeComboBox.Items.AddRange(new object[] {
             "Weapon",
             "Armor",
+            "Ammunition",
             "Adventuring Gear",
             "Wondrous Item",
-            "Consumable",
-            "Valuable"});
+            "Ring",
+            "Rod",
+            "Staff",
+            "Wand",
+            "Potion",
+            "Scroll",
+            "Gemstone",
+            "Art Object"});
             this.typeComboBox.Location = new System.Drawing.Point(76, 100);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(121, 23);
-            this.typeComboBox.TabIndex = 16;
+            this.typeComboBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -163,7 +170,7 @@
             this.itemNameBox.Location = new System.Drawing.Point(76, 65);
             this.itemNameBox.Name = "itemNameBox";
             this.itemNameBox.Size = new System.Drawing.Size(261, 21);
-            this.itemNameBox.TabIndex = 14;
+            this.itemNameBox.TabIndex = 1;
             // 
             // label1
             // 
