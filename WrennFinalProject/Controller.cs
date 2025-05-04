@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace WrennFinalProject
 {
+    // Static controller class for accessing Adventurer objects from any form
     public static class Controller
     {
         public static List<Adventurer> adventurerTabs = new List<Adventurer>();
         
-        public static void addAdventurer(Adventurer adventurer, int index, MainForm mainForm)
+        public static void addAdventurer(Adventurer adventurer, int index, 
+            MainForm mainForm)
         {
             adventurerTabs.Add(adventurer);
             MainForm mainFormRef = mainForm;

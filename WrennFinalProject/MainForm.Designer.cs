@@ -211,7 +211,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 16;
-            this.label5.Text = "v0.3 | Andrew Wrenn";
+            this.label5.Text = "v0.4 | Andrew Wrenn";
             // 
             // saveListButton
             // 

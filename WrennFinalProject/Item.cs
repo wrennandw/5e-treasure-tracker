@@ -8,6 +8,8 @@ using System.Text.Json.Serialization;
 
 namespace WrennFinalProject
 {
+    // Item class for storing item data in a way the JSON serializer
+    // can handle.
     public class Item
     {
         [JsonInclude]
@@ -21,7 +23,8 @@ namespace WrennFinalProject
         [JsonInclude]
         string attunement;
 
-        public Item(string name, int quantity, string type, string rarity, string attunement)
+        public Item(string name, int quantity, string type, string rarity, 
+            string attunement)
         {
             this.name = name;
             this.quantity = quantity;

@@ -3,14 +3,15 @@ Project name: WrennFinalProject
 Author: Andrew Wrenn
 Date: 4/20/2025
 Description: A treasure and inventory tracker for D&D 5th Edition
-Github: https:// www/github.com/wrennandw/5e-treasure-tracker
+Github: https://www.github.com/wrennandw/5e-treasure-tracker
 
-Default portraits sourced from the Dungeons & Dragons 5th Edition Player's Handbook
-Coin icons from https:// img.freepik.com/free-vector/realistic-coins-transparent-set-isolated-icons
-    -with-gold-silver-bronze-colored-money-dime-items-vector-illustration_1284-78174.jpg
- */
+> Default portraits sourced from the Dungeons & Dragons 5th Edition
+Player's Handbook
 
-
+> Coin icons from https:// img.freepik.com/free-vector/realistic-coins
+    -transparent-set-isolated-icons-with-gold-silver-bronze-colored-money
+    -dime-items-vector-illustration_1284-78174.jpg
+*/
 
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// I had to add the System.Text.Json package; I wanted to use JSON for my save/load system because
-// I'm very familiar with it and prefer it to plaintext; I was surprised it doesn't have
-// out of the box support.
+// I had to add the System.Text.Json package; I wanted to use JSON for my
+// save/load system because I'm very familiar with it and prefer it to
+// plaintext; I was surprised it doesn't have out of the box support.
 using System.Text.Json;
 using System.Reflection;
 
@@ -37,7 +38,8 @@ namespace WrennFinalProject
         public MainForm()
         {
             InitializeComponent();
-            Adventurer allTab = new Adventurer(this, "All", "..\\images\\Equipment.png");
+            Adventurer allTab = new Adventurer(this, 
+                "All", "..\\images\\Equipment.png");
             // Container for instantiated Adventurers
             Controller.addAdventurer(allTab, 0, this);
             portraitBox.ImageLocation = "..\\images\\Equipment.png";
@@ -118,8 +120,8 @@ namespace WrennFinalProject
             {
                 int tabIndex = treasureListTabControl.SelectedIndex;
                 EditItemForm editItemForm = new EditItemForm(this,
-                    Controller.adventurerTabs[tabIndex].treasureList.SelectedItems[0],
-                    tabIndex);
+                    Controller.adventurerTabs[tabIndex].treasureList.
+                    SelectedItems[0], tabIndex);
                 editItemForm.ShowDialog();
             }
             catch
@@ -225,7 +227,8 @@ namespace WrennFinalProject
                     Controller.removeAdventurer(i);
                 }
 
-                StreamReader inputFile = new StreamReader(openFileDialog.FileName);
+                StreamReader inputFile = new StreamReader(
+                    openFileDialog.FileName);
 
                 partyNameLabel.Text = inputFile.ReadLine();
                 string currentLine;
@@ -260,13 +263,16 @@ namespace WrennFinalProject
             }
         }
 
+        // Add a new adventurer tab/inventory
         private void addPartyMemberButton_Click(object sender, EventArgs e)
         {
             int index = treasureListTabControl.SelectedIndex;
-            AddAdventurerForm addAdventurerForm = new AddAdventurerForm(this, index);
+            AddAdventurerForm addAdventurerForm = new AddAdventurerForm(
+                this, index);
             addAdventurerForm.ShowDialog();
         }
 
+        // Remove the selected adventurer and their inventory
         private void removePartyMemberButton_Click(object sender, EventArgs e)
         {
             int index = treasureListTabControl.SelectedIndex;
@@ -279,7 +285,8 @@ namespace WrennFinalProject
             else
             {
                 // Make sure the user wants to delete this adventurer
-                var confirm = MessageBox.Show("Remove this adventurer? All items will be deleted.",
+                var confirm = MessageBox.Show("Remove this adventurer? " +
+                    "All items will be deleted.",
                     "Remove Adventurer", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                 {
@@ -289,33 +296,37 @@ namespace WrennFinalProject
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DebugForm debugForm = new DebugForm();
-            debugForm.ShowDialog();
-        }
-
-        private void treasureListTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void treasureListTabControl_SelectedIndexChanged(
+            object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;
-            string portraitPath = Controller.adventurerTabs[tabIndex].portraitPath;
+            string portraitPath = Controller.adventurerTabs[tabIndex].
+                portraitPath;
             portraitBox.ImageLocation = portraitPath;
-
+            gpTextBox.Text = Controller.adventurerTabs[tabIndex].coinage["gp"]
+                .ToString();
+            spTextBox.Text = Controller.adventurerTabs[tabIndex].coinage["sp"]
+                .ToString();
+            cpTextBox.Text = Controller.adventurerTabs[tabIndex].coinage["cp"]
+                .ToString();
         }
 
         private void portraitBox_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)" +
+                "|*.BMP;*.JPG;*.JPEG;*.PNG";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string portraitPath = openFileDialog.FileName;
                 int tabIndex = treasureListTabControl.SelectedIndex;
-                Controller.adventurerTabs[tabIndex].updatePortrait(portraitPath);
+                Controller.adventurerTabs[tabIndex].updatePortrait(
+                    portraitPath);
                 portraitBox.ImageLocation = portraitPath;
             }
         }
 
+        // Update the GP total when the GP amount is changed
         private void gpTextBox_TextChanged(object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;
@@ -327,11 +338,13 @@ namespace WrennFinalProject
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                gpTextBox.Text = Controller.adventurerTabs[tabIndex].revertCoinage(0).ToString();
+                gpTextBox.Text = Controller.adventurerTabs[tabIndex].
+                    revertCoinage(0).ToString();
                 return;
             }
         }
 
+        // Log the GP total when the box is selected (for error handling)
         private void gpTextBox_Selected(object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;
@@ -339,6 +352,7 @@ namespace WrennFinalProject
             Controller.adventurerTabs[tabIndex].logOldCoinage(0, gp);
         }
 
+        // Update the SP total when the GP amount is changed
         private void spTextBox_TextChanged(object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;
@@ -350,11 +364,13 @@ namespace WrennFinalProject
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                spTextBox.Text = Controller.adventurerTabs[tabIndex].revertCoinage(1).ToString();
+                spTextBox.Text = Controller.adventurerTabs[tabIndex].
+                    revertCoinage(1).ToString();
                 return;
             }
         }
-
+        
+        // Log the SP total when the box is selected (for error handling)
         private void spTextBox_Selected(object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;
@@ -362,6 +378,7 @@ namespace WrennFinalProject
             Controller.adventurerTabs[tabIndex].logOldCoinage(1, sp);
         }
 
+        // Update the CP total when the GP amount is changed
         private void cpTextBox_TextChanged(object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;
@@ -373,10 +390,13 @@ namespace WrennFinalProject
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                cpTextBox.Text = Controller.adventurerTabs[tabIndex].revertCoinage(2).ToString();
+                cpTextBox.Text = Controller.adventurerTabs[tabIndex].
+                    revertCoinage(2).ToString();
                 return;
             }
         }
+
+        // Log the CP total when the box is selected (for error handling)
         private void cpTextBox_Selected(object sender, EventArgs e)
         {
             int tabIndex = treasureListTabControl.SelectedIndex;

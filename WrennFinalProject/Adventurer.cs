@@ -27,7 +27,8 @@ namespace WrennFinalProject
         [JsonInclude]
         public Dictionary<string, int> coinage = new Dictionary<string, int>();
 
-        // Trackers for coinage changes, to restore the value if a non-int is input
+        // Trackers for coinage changes, to restore the value if a
+        // non-int is input
         [JsonInclude]
         private int oldGp = 0;
         [JsonInclude]
@@ -53,11 +54,16 @@ namespace WrennFinalProject
             // Initialize the ListView with the required properties
 
             this.treasureList.BorderStyle = BorderStyle.FixedSingle;
-            this.treasureList.Columns.Add("Item Name", 175, HorizontalAlignment.Left);
-            this.treasureList.Columns.Add("Quantity", 60, HorizontalAlignment.Left);
-            this.treasureList.Columns.Add("Type", 105, HorizontalAlignment.Left);
-            this.treasureList.Columns.Add("Rarity", 75, HorizontalAlignment.Left);
-            this.treasureList.Columns.Add("Attunement", 75, HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Item Name", 175,
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Quantity", 60, 
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Type", 105, 
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Rarity", 75, 
+                HorizontalAlignment.Left);
+            this.treasureList.Columns.Add("Attunement", 75, 
+                HorizontalAlignment.Left);
             this.treasureList.Dock = DockStyle.Fill;
             this.treasureList.View = View.Details;
             this.treasureList.GridLines = true;
