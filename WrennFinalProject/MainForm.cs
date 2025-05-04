@@ -303,6 +303,10 @@ namespace WrennFinalProject
                                 tempPortrait;
                             portraitBox.ImageLocation = tempPortrait;
 
+                            Controller.adventurerTabs[0].adventurerName = 
+                                tempName;
+                            treasureListTabControl.SelectedTab.Text = tempName;
+
                             // Set the current coinage
                             gpTextBox.Text = tempGp.ToString();
                             spTextBox.Text = tempSp.ToString();
