@@ -88,7 +88,6 @@ namespace WrennFinalProject
                 item.SubItems[2].Text, item.SubItems[3].Text, 
                 item.SubItems[4].Text);
             this.adventurerItem.Add(listItem);
-            Console.WriteLine($"{item.Text}: Item added");
         }
 
         // Edit an existing item from the EditItem form
