@@ -46,13 +46,11 @@ namespace WrennFinalProject
         {
             InitializeComponent();
             Adventurer allTab = new Adventurer(this, 
-                "All", "..\\images\\Equipment.png");
+                "Default", "..\\images\\Equipment.png");
             // Container for instantiated Adventurers
             Controller.addAdventurer(allTab);
             portraitBox.ImageLocation = "..\\images\\Equipment.png";
             Console.WriteLine("Initialized.");
-
-
         }
 
         // Update the Party Name field from the rename form
@@ -297,7 +295,7 @@ namespace WrennFinalProject
                             .AsArray();
                         int numItems = itemsArray.Count;
 
-                        // Handle the All tab
+                        // Handle the default tab
                         if (adventurerIndex == 0) {
                             
                             // Restore and update the portrait
@@ -378,9 +376,9 @@ namespace WrennFinalProject
             int index = treasureListTabControl.SelectedIndex;
             
             // Prevent the first tab from being deleted
-            if (index == 0)
+            if (treasureListTabControl.TabCount == 1)
             {
-                MessageBox.Show("You cannot delete the main list!");
+                MessageBox.Show("You cannot delete the last list!");
             }
             else
             {

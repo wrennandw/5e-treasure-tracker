@@ -23,7 +23,7 @@ namespace WrennFinalProject
 
 
             // Initialize the dropdowns to a default value
-            typeComboBox.SelectedIndex = 0;
+            typeComboBox.SelectedIndex = 3;
             rarityComboBox.SelectedIndex = 0;
         }
 
