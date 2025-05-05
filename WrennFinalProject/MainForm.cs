@@ -1,7 +1,7 @@
 ﻿/* 
 Project name: WrennFinalProject
 Author: Andrew Wrenn
-Date: 4/20/2025
+Date: 5/5/2025
 Description: A treasure and inventory tracker for D&D 5th Edition
 Github: https://www.github.com/wrennandw/5e-treasure-tracker
 
@@ -51,6 +51,8 @@ namespace WrennFinalProject
             Controller.addAdventurer(allTab);
             portraitBox.ImageLocation = "..\\images\\Equipment.png";
             Console.WriteLine("Initialized.");
+            MessageBox.Show("To see an example of the treasure list in use," +
+                " click the Load button and open \"Wayward Souls.json!\"");
         }
 
         // Update the Party Name field from the rename form
@@ -211,7 +213,8 @@ namespace WrennFinalProject
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "..\\savedata";
-            
+            openFileDialog.Filter = "JSON Files | *.json; *.JSON";
+
             // Create the save directory if it doesn't already exist
             if (!Directory.Exists("..\\savedata"))
             {

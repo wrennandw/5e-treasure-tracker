@@ -211,7 +211,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 16;
-            this.label5.Text = "v0.5 | Andrew Wrenn";
+            this.label5.Text = "v1.0 | Andrew Wrenn";
             // 
             // saveListButton
             // 
@@ -261,6 +261,12 @@
             this.treasureListTabControl.Size = new System.Drawing.Size(517, 346);
             this.treasureListTabControl.TabIndex = 1;
             this.treasureListTabControl.SelectedIndexChanged += new System.EventHandler(this.treasureListTabControl_SelectedIndexChanged);
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "json";
+            this.saveFileDialog.FileName = "Party.json";
+            this.saveFileDialog.Filter = "JSON Files |*.json; *.JSON";
             // 
             // openFileDialog
             // 
