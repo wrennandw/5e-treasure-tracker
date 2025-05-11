@@ -27,7 +27,14 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+
+![Bb]in/
+
+[Bb]in/*
+![Bb]in/savedata
+![Bb]in/images
+![Bb]in/default_items
+
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
